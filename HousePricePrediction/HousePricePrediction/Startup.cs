@@ -35,8 +35,10 @@ namespace HousePricePrediction
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+/*
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+*/
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();

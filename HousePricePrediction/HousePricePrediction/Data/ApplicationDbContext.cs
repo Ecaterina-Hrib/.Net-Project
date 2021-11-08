@@ -10,12 +10,18 @@ using System.Threading.Tasks;
 
 namespace HousePricePrediction.Data
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(
-            DbContextOptions options,
-            IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
-        {
+       public ApplicationDbContext (DbContextOptions<ApplicationDbContext > options) : base(options){}
+        
+        public DbSet<ApplicationUser> Users { get; set; }
+
+        public DbSet<House> Houses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder){
+        /*
+            TO DO
+        */
         }
     }
 }
