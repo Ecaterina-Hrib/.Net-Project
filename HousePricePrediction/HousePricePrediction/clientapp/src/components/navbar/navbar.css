@@ -1,6 +1,6 @@
 .navMenu{
     width: 100%;
-    height: 100%;
+    height: 5em;
     background-color: black;
 }
 .bm-burger-button {
@@ -13,18 +13,18 @@
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #373a47;
+    background: white;
   }
   
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: #a90000;
+    background:orangered;
   }
   
   /* Position and sizing of clickable cross button */
   .bm-cross-button {
-    height: 24px;
-    width: 24px;
+    height: 2em;
+    width: 2em;
   }
   
   /* Color/shape of close button cross */
@@ -45,7 +45,9 @@
   .bm-menu {
     background: #373a47;
     padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+    color: white;
+    text-decoration: none;
+    font-size: 1.35em;
   }
   
   /* Morph shape necessary with bubble or elastic */
@@ -55,16 +57,52 @@
   
   /* Wrapper for item list */
   .bm-item-list {
-    color: #b8b7ad;
+    color: red;
     padding: 0.8em;
   }
   
   /* Individual item */
   .bm-item {
     display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 1em 0 1em 0;
   }
   
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+  }
+
+  .circle{
+      display: flex !important;
+      justify-content: center;
+      width: 100%;
+      left: 3em;
+  }
+  #roundPicture {
+      width: 6.5em;
+      height: 6em;
+      border-radius: 100%;
+      background-color: white;
+  }
+
+  .registerButtons{
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 10em;
+  }
+
+  .registerButtons button{
+      background-color: maroon;
+      color: white;
+      border-radius: 0.76em;
+      border: 1px solid black;
+      text-decoration: none;
+      height: 4em;
+      width: 11em;
+      margin: 3em 0 0 0;
+      font-size: 1em;
   }
