@@ -1,10 +1,10 @@
 import React from "react";
-import HouseCard from "../components/HouseCard";
+import HomeCard from "../components/homeCard/homeCard";
 
 export default function Home() {
   return (
     <div className="Home">
-      <HouseCard />
+      <HomeCard />
     </div>
   );
 }

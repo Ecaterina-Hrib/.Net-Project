@@ -9,7 +9,7 @@ function Navbar(){
                     <div id="roundPicture"></div>
                 </div>
                 <Link to="/">Home</Link>
-                <Link to="/">Buy/Rent House</Link>
+                <Link to="/buy">Buy/Rent House</Link>
                 <Link to="/">Sell House</Link>
                 <Link to="/">Our recommandations</Link>
                 <Link to="/">My Profile</Link>
