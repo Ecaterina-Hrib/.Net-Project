@@ -1,6 +1,6 @@
-using FII.eCommerce.Api.Customers.DB;
-using FII.eCommerce.Api.Customers.Interfaces;
-using FII.eCommerce.Api.Customers.Providers;
+using HousePricePrediction.API.Users.DB;
+using HousePricePrediction.API.Users.Interfaces;
+using HousePricePrediction.API.Users.Providers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CustomersDbContext>(options => options.UseInMemoryDatabase("Customers"));
+builder.Services.AddDbContext<UsersDbContext>(options => options.UseInMemoryDatabase("Users"));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<ICustomersProvider, CustomersProvider>();
+builder.Services.AddScoped<IUsersProvider, UsersProvider>();
 
 var app = builder.Build();
 

@@ -1,15 +1,15 @@
-﻿using FII.eCommerce.Api.Customers.Interfaces;
+﻿using HousePricePrediction.API.Users.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FII.eCommerce.Api.Customers.Controllers
+namespace HousePricePrediction.API.Users.Controllers
 {
     [ApiController]
-    [Route("api/v1/customers")]
-    public class CustomersController : ControllerBase
+    [Route("api/v1/users")]
+    public class UsersController : ControllerBase
     {
-        private readonly ICustomersProvider provider;
+        private readonly IUsersProvider provider;
 
-        public CustomersController(ICustomersProvider provider)
+        public UsersController(IUsersProvider provider)
         {
             this.provider = provider;
         }
@@ -17,10 +17,10 @@ namespace FII.eCommerce.Api.Customers.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await provider.GetCustomersAsync();
+            var result = await provider.GetUsersAsync();
             if (result.IsSuccess)
             {
-                return Ok(result.Customers);
+                return Ok(result.Users);
             }
             return NotFound();
         }
@@ -28,10 +28,10 @@ namespace FII.eCommerce.Api.Customers.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var result = await provider.GetCustomerAsync(id);
+            var result = await provider.GetUserAsync(id);
             if (result.IsSuccess)
             {
-                return Ok(result.Customer);
+                return Ok(result.User);
             }
             return NotFound();
         }
