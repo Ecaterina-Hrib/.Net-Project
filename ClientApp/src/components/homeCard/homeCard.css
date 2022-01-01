@@ -1,0 +1,41 @@
+.carouselHome{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.background{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    background-color: darkred;
+    margin-top: 10em;
+}
+
+.photoContainer{
+    display: flex;
+    width: 100%;
+    flex-direction: row !important;
+    justify-content: space-evenly;
+    max-height: 25em;
+}
+
+.photoContainer img{
+    max-width:80vw;
+    height: 50vh;
+    padding-top: 2em;
+    padding-bottom: 7em;
+    object-fit: cover;
+}
+
+.background p{
+    text-align: center;
+    padding-top: 3em;
+    color:white;
+}
+.carousel{
+    width: 100% !important;
+}
