@@ -3,8 +3,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>API</ActiveDebugProfile>
   </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" >
-  </PropertyGroup>
+
   <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
