@@ -1,0 +1,11 @@
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/bin/Debug/netstandard2.0/MLModel.zip
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/bin/Debug/netstandard2.0/HousePrice.Model.deps.json
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/bin/Debug/netstandard2.0/HousePrice.Model.dll
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/bin/Debug/netstandard2.0/HousePrice.Model.pdb
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.csproj.AssemblyReference.cache
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.AssemblyInfoInputs.cache
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.AssemblyInfo.cs
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.csproj.CoreCompileInputs.cache
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.dll
+/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.pdb

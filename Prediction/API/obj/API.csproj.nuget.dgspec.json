@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj": {}
+  },
+  "projects": {
+    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj",
+        "projectName": "API",
+        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj",
+        "packagesPath": "/Users/rmacovei/.nuget/packages/",
+        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj": {
+                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj"
+              },
+              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
+                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.13, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
+        "projectName": "HousePrice.ConsoleApp",
+        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
+        "packagesPath": "/Users/rmacovei/.nuget/packages/",
+        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
+                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Microsoft.ML.FastTree": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
+        "projectName": "HousePrice.Model",
+        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
+        "packagesPath": "/Users/rmacovei/.nuget/packages/",
+        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Microsoft.ML.FastTree": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
