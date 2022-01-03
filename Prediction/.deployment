@@ -1,2 +1,2 @@
 [config]
-project = Prediction/API
+project = ./API
