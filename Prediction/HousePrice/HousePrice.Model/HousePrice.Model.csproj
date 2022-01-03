@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
   <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="1.5.0" />
     <PackageReference Include="Microsoft.ML.FastTree" Version="1.5.0" />
