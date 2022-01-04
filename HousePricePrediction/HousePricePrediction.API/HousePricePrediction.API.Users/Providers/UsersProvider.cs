@@ -2,9 +2,8 @@
 using HousePricePrediction.API.Users.DB;
 using HousePricePrediction.API.Users.Infrastructure;
 using HousePricePrediction.API.Users.Interfaces;
-using HousePricePrediction.API.Users.Models;
+using HousePricePrediction.API.Users.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace HousePricePrediction.API.Users.Providers
 {
