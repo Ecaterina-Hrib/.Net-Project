@@ -1,7 +1,11 @@
-.App {
+  .App {
     text-align: center;
   }
-  
+
+  .Home{
+    height: 91%;
+  }
+
   .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -34,6 +38,13 @@
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1200px)
+  {
+    .BrHouse{
+      flex-direction: column;
     }
   }
   
