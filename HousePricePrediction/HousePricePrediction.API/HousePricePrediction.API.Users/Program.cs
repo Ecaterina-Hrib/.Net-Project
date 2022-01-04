@@ -2,6 +2,7 @@ using HousePricePrediction.API.Users.DB;
 using HousePricePrediction.API.Users.Interfaces;
 using HousePricePrediction.API.Users.Providers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<UsersDbContext>(options => options.UseInMemoryDatabase("Users"));
+builder.Services.AddDbContext<UsersDbContext>( options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUsersProvider, UsersProvider>();
 

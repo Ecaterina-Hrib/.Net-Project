@@ -4,7 +4,7 @@ namespace HousePricePrediction.API.Houses.Infrastracture
 {
     public static class HouseFactory
     {
-        public static HousesDbContext SeedHouses(this HousesDbContext context)
+        public static HouseDbContext SeedHouses(this HouseDbContext context)
         {
             if (!context.Houses.Any())
             {

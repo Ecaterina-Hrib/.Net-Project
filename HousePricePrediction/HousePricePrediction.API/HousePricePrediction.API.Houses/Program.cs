@@ -15,7 +15,8 @@ builder.Services.AddSwaggerGen();
 // project dependecies
 builder.Services.AddScoped<IHousesProvider, HousesProvider>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddDbContext<HousesDbContext>(options => options.UseInMemoryDatabase("Houses"));
+
+builder.Services.AddDbContext<UsersDbContext>( options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

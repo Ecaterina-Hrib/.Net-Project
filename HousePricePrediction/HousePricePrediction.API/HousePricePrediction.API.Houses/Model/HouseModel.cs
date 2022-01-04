@@ -29,6 +29,5 @@
         private Dictionary<DateTime, int> viewsHistory { get; set; } = new Dictionary<DateTime, int>();
         private int views { get; set; }
         private ICollection<String>? pictures { get; set; }
-        // private User user;
     }
 }

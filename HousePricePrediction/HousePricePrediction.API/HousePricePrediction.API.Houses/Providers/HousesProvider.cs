@@ -9,11 +9,11 @@ namespace HousePricePrediction.API.Houses.Providers
 {
     public class HousesProvider : IHousesProvider
     {
-        private readonly HousesDbContext context;
+        private readonly HouseDbContext context;
         private readonly ILogger<HousesProvider> logger;
         private readonly IMapper mapper;
 
-        public HousesProvider(HousesDbContext context, ILogger<HousesProvider> logger, IMapper mapper)
+        public HousesProvider(HouseDbContext context, ILogger<HousesProvider> logger, IMapper mapper)
         {
             this.context = context;
             this.logger = logger;

@@ -1,4 +1,5 @@
-﻿namespace HousePricePrediction.API.Houses.DB
+﻿
+namespace HousePricePrediction.API.Houses.DB
 {
     public class House
     { 
@@ -29,7 +30,6 @@
         private Dictionary<DateTime, int> _viewsHistory { get; set; } = new Dictionary<DateTime, int>();
         private int _views { get; set; }
         private List<String> _pictures { get; set; } = new List<String>();
-        private User _user;
 
         // attributes to estimate the price (ML module)
         private string Date { get; set; }
@@ -42,7 +42,6 @@
         private float View  { get; set; }
         private float Condition  { get; set; }
         private float Grade  { get; set; }
-        private float Condition  { get; set; }
         private float Sqft_basement  { get; set; }
         private float Yr_built  { get; set; }
         private float Yr_renovated  { get; set; }

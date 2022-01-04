@@ -1,5 +1,4 @@
-﻿namespace HousePricePrediction.API.Users.DB;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HousePricePrediction.API.Users.DB
 {
@@ -7,7 +6,7 @@ namespace HousePricePrediction.API.Users.DB
     {
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DafaultConnection"));
+            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=EFCore-SchoolDB;Trusted_Connection=True");
         }
 
          protected override void OnModelCreating(ModelBuilder modelBuilder)
