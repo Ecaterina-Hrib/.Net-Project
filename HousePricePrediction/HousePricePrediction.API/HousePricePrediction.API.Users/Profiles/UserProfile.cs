@@ -1,5 +1,5 @@
 ﻿using HousePricePrediction.API.Users.DB;
-using HousePricePrediction.API.Users.Models;
+using HousePricePrediction.API.Users.Model;
 
 namespace HousePricePrediction.API.Users.Profiles
 {
