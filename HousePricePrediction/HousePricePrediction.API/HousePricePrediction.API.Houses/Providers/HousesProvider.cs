@@ -4,18 +4,23 @@ using HousePricePrediction.API.Houses.Infrastracture;
 using HousePricePrediction.API.Houses.Interfaces;
 using HousePricePrediction.API.Houses.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 
 namespace HousePricePrediction.API.Houses.Providers
 {
     public class HousesProvider : IHousesProvider
     {
         private readonly HouseDbContext context;
+
+        private readonly IConfiguration configuration;
         private readonly ILogger<HousesProvider> logger;
         private readonly IMapper mapper;
 
-        public HousesProvider(HouseDbContext context, ILogger<HousesProvider> logger, IMapper mapper)
+        public HousesProvider(HouseDbContext context, IConfiguration configuration, ILogger<HousesProvider> logger, IMapper mapper)
         {
             this.context = context;
+            this.configuration =  configuration;
             this.logger = logger;
             this.mapper = mapper;
             context.SeedHouses();
@@ -26,19 +31,19 @@ namespace HousePricePrediction.API.Houses.Providers
             try
             {
                 logger?.LogInformation("Quering houses");
-                var house = await context.Houses.FirstOrDefaultAsync(p=>p.Id == id);
+                var house = await context.Houses.FirstOrDefaultAsync(p=>p._id == id);
                 if (house != null)
                 {
                     var result = mapper.Map<HouseModel>(house);
-                    return (true, result, null);
+                    return (true, result, "");
                 }
 
-                return (false, null, "Not found");
+                return (false, new HouseModel(), "Not found");
             }
             catch (Exception ex)
             {
                 logger?.LogError(ex.ToString());
-                return (false, null, ex.Message);
+                return (false, new HouseModel(), ex.Message);
             }
         }
 
@@ -50,18 +55,18 @@ namespace HousePricePrediction.API.Houses.Providers
                 var houses = await context.Houses.ToListAsync();
                 if (houses != null && houses.Any())
                 {
-                    logger?.LogInformation($"{houses.Count} house(s) found");
+                    // logger?.LogInformation($"{houses.Count} house(s) found");
 
                     var result = mapper.Map<IEnumerable<HouseModel>>(houses);
-                    return (true, result, null);
+                    return (true, result, "null");
                 }
 
-                return (false, null, "Not found");
+                return (false, Enumerable.Empty<HouseModel>(), "Not found");
             }
             catch (Exception ex)
             {
                 logger?.LogError(ex.ToString());
-                return (false, null, ex.Message);
+                return (false, Enumerable.Empty<HouseModel>(), ex.Message);
             }
         }
     }

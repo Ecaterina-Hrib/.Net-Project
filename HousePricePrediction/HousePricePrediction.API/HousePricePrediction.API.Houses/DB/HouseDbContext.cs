@@ -4,11 +4,17 @@ namespace HousePricePrediction.API.Houses.DB
 {
     public class HouseDbContext : DbContext
     {
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public HouseDbContext (DbContextOptions<HouseDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=EFCore-SchoolDB;Trusted_Connection=True");
+
         }
+
+
+
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=EFCore-SchoolDB;Trusted_Connection=True");
+        // }
 
         //  protected override void OnModelCreating(ModelBuilder modelBuilder)
         //  {
@@ -19,7 +25,7 @@ namespace HousePricePrediction.API.Houses.DB
         //         .OnDelete(DeleteBehavior.Cascade);
         //  }
 
-        // public DbSet<House>? Houses { get; set; }
+        public DbSet<House>? Houses { get; set; }
         // public DbSet<User>? Users { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using HousePricePrediction.API.Houses.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FHousePricePrediction.API.Houses.Controllers
+namespace HousePricePrediction.API.Houses.Controllers
 {
     [Route("api/v1/houses")]
     [ApiController]
