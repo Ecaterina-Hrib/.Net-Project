@@ -3,7 +3,7 @@
     public class HouseModel
     {
         private Guid Id { get; set; }
-        private long userID { get; set; }
+        // private long userID { get; set; }
         private String? description { get; set; }
         private String? title { get; set; }
         private String? city { get; set; }

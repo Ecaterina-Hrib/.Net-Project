@@ -5,8 +5,10 @@ namespace HousePricePrediction.API.Houses.DB
 {
     public class House
     { 
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid _id { get; set; }
-        public long _userID { get; set; }
+        // public long _userID { get; set; }
         public String? _description { get; set; }
         public String? _title { get; set; }
         public String? _city { get; set; }
