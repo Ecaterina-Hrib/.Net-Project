@@ -3,7 +3,7 @@ using HousePricePrediction.API.Persitence.Context;
 using System.Collections.Generic;
 using System;
 
-namespace Test
+namespace HousePricePrediction.API.Tests
 {
     public class DatabaseInitializer
     {

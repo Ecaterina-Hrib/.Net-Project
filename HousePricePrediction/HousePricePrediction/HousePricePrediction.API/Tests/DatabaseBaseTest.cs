@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using HousePricePrediction.API.Persitence.Context;
 using System;
 
-namespace Test
+namespace HousePricePrediction.API.Tests
 {
     public class DatabaseBaseTest : IDisposable
     {
