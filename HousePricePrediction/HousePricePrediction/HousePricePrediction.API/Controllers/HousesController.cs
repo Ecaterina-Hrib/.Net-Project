@@ -1,6 +1,11 @@
 ﻿using HousePricePrediction.API.Services;
 using HousePricePrediction.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace HousePricePrediction.API.Controllers
 {
@@ -8,6 +13,7 @@ namespace HousePricePrediction.API.Controllers
     [ApiController]
     public class HousesController : ControllerBase
     {
+        private const string BASE_URL = "https://house-prediction-ml-module.herokuapp.com/Price";
         private readonly HouseService _service;
 
         private readonly UserService _userService;
@@ -23,19 +29,31 @@ namespace HousePricePrediction.API.Controllers
         {
             var user = await _userService.GetUserByUsernameAsync(username);
             if (user.IsSuccess)
-                _newHouse._user = user.User;
+                {
+                    _newHouse._user = user.User;
+                }
             else
             {
                 return BadRequest(user.ErrorMessage);
 
             }
-            Console.WriteLine(_newHouse._user._username);
-            Console.WriteLine(user.User._username);
+            _newHouse._creationDate = DateTime.UtcNow;
 
+            HttpClient client = new HttpClient();
+            var path = BASE_URL + "?"+ $"Date={_newHouse._creationDate:yyyyMMddHHmmss}&Price={_newHouse._currentPrice}&Bedrooms={_newHouse._noOfRooms}&Bathrooms={_newHouse._noOfBathrooms}&Sqft_living={_newHouse._surface}&Sqft_lot={_newHouse._landSurface}&Floors={_newHouse._floor}&View={_newHouse._surface}&Condition={_newHouse._condition}&Grade={_newHouse._grade}&Sqft_basement={_newHouse._sqft_basement}&Yr_built={_newHouse._constructionYear}&Yr_renovated={_newHouse._yr_renovated}&Zipcode={_newHouse._zipcode}&Lat={_newHouse._latitude}&Long={_newHouse._longitude}";
+            HttpResponseMessage response = await client.GetAsync(path);
+
+            RecommendedPrice prices = null;
+            if(response.IsSuccessStatusCode)
+            {
+                prices = await response.Content.ReadAsAsync<RecommendedPrice>();
+                _newHouse._recommendedPrice = prices;
+            }
             var house = await _service.CreateHouseAsync(_newHouse);
             if (house.IsSuccess)
             {
-                return NoContent();
+                await _userService.AddHouseAsync(user.User, _newHouse);
+                return Ok(house.House._recommendedPrice);
             }
 
             return BadRequest(house.ErrorMessage);

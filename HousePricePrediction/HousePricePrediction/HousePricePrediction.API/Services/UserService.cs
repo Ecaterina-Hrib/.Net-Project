@@ -27,12 +27,35 @@ namespace HousePricePrediction.API.Services
                 var user = await context.Users.AddAsync(_newUser);
                 if (user != null)
                 {
-                    // var result = mapper.Map<HouseModel>(house);
                     await context.SaveChangesAsync();
                     return (true, user.Entity, "created!");
                 }
 
                 return (false, new User(), "Did not save");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, new User(), ex.Message);
+            }
+        }
+
+        public async Task<(bool IsSuccess, User User, string ErrorMessage)> AddHouseAsync(User userData, House house)
+        {
+            try
+            {
+                logger?.LogInformation("Add house to user");
+                var user = await context.Users.SingleOrDefaultAsync(c => c._id == userData._id);
+                if (user != null)
+                {
+                    logger?.LogInformation("User found");
+                    user._forSell.Add(house);
+                    await context.SaveChangesAsync();
+                    return (true, user, "added!");
+
+
+                }
+                return (false, new User(), "Not Found");
             }
             catch (Exception ex)
             {
@@ -49,7 +72,6 @@ namespace HousePricePrediction.API.Services
                 if (user != null)
                 {
                     logger?.LogInformation("User found");
-                    // var result = mapper.Map<User, UserModel>(user);
                     return (true, user, "null");
                 }
                 return (false, new User(), "Not Found");
@@ -70,7 +92,6 @@ namespace HousePricePrediction.API.Services
                 if (user != null)
                 {
                     logger?.LogInformation("User found");
-                    // var result = mapper.Map<User, UserModel>(user);
                     return (true, user, "null");
                 }
                 return (false, new User(), "Not Found");
@@ -92,7 +113,6 @@ namespace HousePricePrediction.API.Services
                 if (users != null && users.Any())
                 {
                     logger?.LogInformation($"{users.Count} user(s) found");
-                    // var result = mapper.Map<IEnumerable<User>, IEnumerable<UserModel>>(users);
                     return (true, users, "null");
                 }
                 return (false, Enumerable.Empty<User>(), "Not found");

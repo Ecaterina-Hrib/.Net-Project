@@ -25,7 +25,7 @@ namespace HousePricePrediction.API.DB
 
                 modelBuilder.Entity<User>().ToTable("users");
 
-
+                modelBuilder.Entity<RecommendedPrice>().HasNoKey();
                 base.OnModelCreating(modelBuilder);
          }
     }
