@@ -16,7 +16,7 @@ namespace HousePricePrediction.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHouseAsync(User _newUser)
+        public async Task<IActionResult> CreateUserAsync(User _newUser)
         {
             var user = await _service.CreateUserAsync(_newUser);
             if (user.IsSuccess)
@@ -24,7 +24,7 @@ namespace HousePricePrediction.API.Controllers
                 return NoContent();
             }
 
-            return NotFound(user.ErrorMessage);
+            return BadRequest(user.ErrorMessage);
         }
         [HttpGet]
         public async Task<IActionResult> Get()

@@ -10,21 +10,35 @@ namespace HousePricePrediction.API.Controllers
     {
         private readonly HouseService _service;
 
-        public HousesController(HouseService service)
+        private readonly UserService _userService;
+
+        public HousesController(HouseService service, UserService userService)
         {
             this._service = service;
+            this._userService = userService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHouseAsync(House _newHouse)
+        public async Task<IActionResult> CreateHouseAsync(string username, House _newHouse)
         {
+            var user = await _userService.GetUserByUsernameAsync(username);
+            if (user.IsSuccess)
+                _newHouse._user = user.User;
+            else
+            {
+                return BadRequest(user.ErrorMessage);
+
+            }
+            Console.WriteLine(_newHouse._user._username);
+            Console.WriteLine(user.User._username);
+
             var house = await _service.CreateHouseAsync(_newHouse);
             if (house.IsSuccess)
             {
                 return NoContent();
             }
 
-            return NotFound(house.ErrorMessage);
+            return BadRequest(house.ErrorMessage);
         }
         [HttpGet]
         public async Task<IActionResult> GetHousesAsync()

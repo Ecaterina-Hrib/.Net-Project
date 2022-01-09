@@ -61,6 +61,27 @@ namespace HousePricePrediction.API.Services
             }
         }
 
+        public async Task<(bool IsSuccess, User User, string ErrorMessage)> GetUserByUsernameAsync(string username)
+        {
+            try
+            {
+                logger?.LogInformation("Quering user by its username");
+                var user = await context.Users.SingleOrDefaultAsync(c => c._username == username);
+                if (user != null)
+                {
+                    logger?.LogInformation("User found");
+                    // var result = mapper.Map<User, UserModel>(user);
+                    return (true, user, "null");
+                }
+                return (false, new User(), "Not Found");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, new User(), ex.Message);
+            }
+        }
+
         public async Task<(bool IsSuccess, IEnumerable<User> Users, string ErrorMessage)> GetUsersAsync()
         {
             try

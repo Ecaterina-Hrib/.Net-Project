@@ -16,12 +16,12 @@ namespace HousePricePrediction.API.DB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
                 modelBuilder.Entity<House>()
-                .ToTable("houses")
-                .HasOne(h => h._user)
-                .WithMany( u => u._forSell)
-                .IsRequired()
-                .HasForeignKey(h => h._id)
-                .OnDelete(DeleteBehavior.Cascade);
+                .ToTable("houses");
+                // .HasOne(h => h._user)
+                // .WithMany( u => u._forSell)
+                // .IsRequired()
+                // .HasForeignKey(h => h._id)
+                // .OnDelete(DeleteBehavior.Cascade);
 
                 modelBuilder.Entity<User>().ToTable("users");
 
