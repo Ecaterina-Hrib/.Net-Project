@@ -1,21 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using HousePricePrediction.API.Models;
 
 
-namespace HousePricePrediction.API.Houses.DB
+namespace HousePricePrediction.API.DB
 {
-    public class HouseDbContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public HouseDbContext (DbContextOptions<HouseDbContext> options) : base(options)
+        public DatabaseContext (DbContextOptions<DatabaseContext> options) : base(options)
         {
-
         }
 
-        //  protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //  {
-        //     modelBuilder.Entity<House>()
-        //  }
+        public DbSet<House> Houses { get; set; } = default!;
+        public DbSet<User> Users { get; set; } = default!;
 
-        public DbSet<House>? Houses { get; set; }
-        // public DbSet<User>? Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+         {
+                modelBuilder.Entity<House>()
+                .ToTable("houses")
+                .HasOne(h => h._user)
+                .WithMany( u => u._forSell)
+                .IsRequired()
+                .HasForeignKey(h => h._id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+                modelBuilder.Entity<User>().ToTable("users");
+
+                base.OnModelCreating(modelBuilder);
+         }
     }
 }

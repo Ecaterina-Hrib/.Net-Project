@@ -4,13 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HousePricePrediction.API.Models
 {
+    [Table("houses")]
     public class House
     { 
         
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid _id { get; set; }
-        public Guid _userID { get; set; }
+        public User? _user { get; set; }
         public String? _description { get; set; }
         public String? _title { get; set; }
         public String? _city { get; set; }

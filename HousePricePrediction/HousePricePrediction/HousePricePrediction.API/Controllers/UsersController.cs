@@ -1,23 +1,35 @@
-﻿using HousePricePrediction.API.Users.Interfaces;
+﻿using HousePricePrediction.API.Services;
+using HousePricePrediction.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HousePricePrediction.API.Users.Controllers
+namespace HousePricePrediction.API.Controllers
 {
     [ApiController]
     [Route("api/v1/users")]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersProvider provider;
+        private readonly UserService _service;
 
-        public UsersController(IUsersProvider provider)
+        public UsersController(UserService _service)
         {
-            this.provider = provider;
+            this._service = _service;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateHouseAsync(User _newUser)
+        {
+            var user = await _service.CreateUserAsync(_newUser);
+            if (user.IsSuccess)
+            {
+                return NoContent();
+            }
+
+            return NotFound(user.ErrorMessage);
+        }
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await provider.GetUsersAsync();
+            var result = await _service.GetUsersAsync();
             if (result.IsSuccess)
             {
                 return Ok(result.Users);
@@ -28,7 +40,7 @@ namespace HousePricePrediction.API.Users.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var result = await provider.GetUserAsync(id);
+            var result = await _service.GetUserAsync(id);
             if (result.IsSuccess)
             {
                 return Ok(result.User);

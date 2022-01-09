@@ -1,32 +1,47 @@
-﻿using AutoMapper;
-using HousePricePrediction.API.Houses.DB;
-using HousePricePrediction.API.Houses.Infrastracture;
-using HousePricePrediction.API.Houses.Interfaces;
-using HousePricePrediction.API.Houses.Model;
+﻿using HousePricePrediction.API.DB;
+using HousePricePrediction.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 
-namespace HousePricePrediction.API.Houses.Providers
+namespace HousePricePrediction.API.Services
 {
-    public class HousesProvider : IHousesProvider
+    public class HouseService
     {
-        private readonly HouseDbContext context;
+        private readonly DatabaseContext context;
 
         private readonly IConfiguration configuration;
-        private readonly ILogger<HousesProvider> logger;
-        private readonly IMapper mapper;
+        private readonly ILogger<HouseService> logger;
 
-        public HousesProvider(HouseDbContext context, IConfiguration configuration, ILogger<HousesProvider> logger, IMapper mapper)
+        public HouseService(DatabaseContext context, IConfiguration configuration, ILogger<HouseService> logger)
         {
             this.context = context;
             this.configuration =  configuration;
             this.logger = logger;
-            this.mapper = mapper;
-            context.SeedHouses();
         }
 
-        public async Task<(bool IsSuccess, HouseModel House, string ErrorMessage)> GetHouseAsync(Guid id)
+        public async Task<(bool IsSuccess, House House, string ErrorMessage)> CreateHouseAsync(House _newHouse)
+        {
+            try
+            {
+                logger?.LogInformation("Create a house");
+                var house = await context.Houses.AddAsync(_newHouse);
+                if (house != null)
+                {
+                    // var result = mapper.Map<HouseModel>(house);
+                    await context.SaveChangesAsync();
+                    return (true, house.Entity, "created!");
+                }
+
+                return (false, new House(), "Did not save");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, new House(), ex.Message);
+            }
+        }
+        public async Task<(bool IsSuccess, House House, string ErrorMessage)> GetHouseAsync(Guid id)
         {
             try
             {
@@ -34,20 +49,20 @@ namespace HousePricePrediction.API.Houses.Providers
                 var house = await context.Houses.FirstOrDefaultAsync(p=>p._id == id);
                 if (house != null)
                 {
-                    var result = mapper.Map<HouseModel>(house);
-                    return (true, result, "");
+                    // var result = mapper.Map<HouseModel>(house);
+                    return (true, house, "");
                 }
 
-                return (false, new HouseModel(), "Not found");
+                return (false, new House(), "Not found");
             }
             catch (Exception ex)
             {
                 logger?.LogError(ex.ToString());
-                return (false, new HouseModel(), ex.Message);
+                return (false, new House(), ex.Message);
             }
         }
 
-        public async Task<(bool IsSuccess, IEnumerable<HouseModel> Houses, string ErrorMessage)> GetHousesAsync()
+        public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetHousesAsync()
         {
             try
             {
@@ -57,16 +72,16 @@ namespace HousePricePrediction.API.Houses.Providers
                 {
                     // logger?.LogInformation($"{houses.Count} house(s) found");
 
-                    var result = mapper.Map<IEnumerable<HouseModel>>(houses);
-                    return (true, result, "null");
+                    // var result = mapper.Map<IEnumerable<HouseModel>>(houses);
+                    return (true, houses, "null");
                 }
 
-                return (false, Enumerable.Empty<HouseModel>(), "Not found");
+                return (false, Enumerable.Empty<House>(), "Not found");
             }
             catch (Exception ex)
             {
                 logger?.LogError(ex.ToString());
-                return (false, Enumerable.Empty<HouseModel>(), ex.Message);
+                return (false, Enumerable.Empty<House>(), ex.Message);
             }
         }
     }

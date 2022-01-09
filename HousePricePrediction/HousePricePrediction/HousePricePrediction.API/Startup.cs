@@ -2,13 +2,17 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Reflection;
-using HousePricePrediction.API.Houses.Providers;
-using HousePricePrediction.API.Houses.DB;
-using HousePricePrediction.API.Houses.Interfaces;
+using HousePricePrediction.API.Models;
+using HousePricePrediction.API.DB;
+using HousePricePrediction.API.Services;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 
-namespace HousePricePrediction.API.Houses
+
+
+namespace HousePricePrediction.API
 {
     public class Startup
     {
@@ -23,8 +27,8 @@ namespace HousePricePrediction.API.Houses
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IHousesProvider, HousesProvider>();
-
+            services.AddScoped<Services.HouseService>();
+            services.AddScoped<Services.UserService>();
             services.AddControllers();
             services.AddSwaggerGen(); 
             // services.AddSwaggerGen(c =>
@@ -39,9 +43,9 @@ namespace HousePricePrediction.API.Houses
             //     );
             // });
 
-            services.AddDbContext<HouseDbContext>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
                 options
-                    .UseNpgsql(Configuration.GetConnectionString("HouseDbContext"))
+                    .UseNpgsql(Configuration.GetConnectionString("DatabaseContext"))
                     .UseSnakeCaseNamingConvention()
                     .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                     .EnableSensitiveDataLogging()

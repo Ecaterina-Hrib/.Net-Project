@@ -4,25 +4,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HousePricePrediction.API.Models
 {
+    [Table("users")]
     public class User
     {
                 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        private Guid _id { get; set; }
-        private String? _name { get; set; }
-        private String? _phoneNumber { get; set; }
-        private String? _username { get; set; }
-        private String? _email { get; set; }
-        private String? _password { get; set; }
-        // private AuthProviderEnum provider { get; set; }
-        // private String? providerId { get; set; }
-        // private bool isEnabled { get; set; }
-        // private bool isLocked { get; set; }
-        private DateTime _creationDate { get; set; }
-        // private Set<Role> roles { get; set; } = new HashSet<>();
-        // private ICollection<House>? favorite { get; set; }
-        private ICollection<House>? forSell { get; set; }
+        public Guid _id { get; set; }
+        public String? _name { get; set; }
+        public String? _phoneNumber { get; set; }
+        public String? _username { get; set; }
+        public String? _email { get; set; }
+        public String? _password { get; set; }
+        // public AuthProviderEnum provider { get; set; }
+        // public String? providerId { get; set; }
+        // public bool isEnabled { get; set; }
+        // public bool isLocked { get; set; }
+        public DateTime _creationDate { get; set; }
+        // public Set<Role> roles { get; set; } = new HashSet<>();
+        // public ICollection<House>? favorite { get; set; }
+        public ICollection<House>? _forSell { get; set; }
         // public const int VIEWS_HISTORY_CAPACITY = 10;
         // public int ViewsHistoryCapacity { get { return VIEWS_HISTORY_CAPACITY; } }
         // public const int FAVOURITE_LIST_CAPACITY = 20;
@@ -30,7 +31,7 @@ namespace HousePricePrediction.API.Models
 
         class MyList<House> : List<House>
         {
-            private int capacity;
+            public int capacity;
 
             public MyList(int capacity) : base() 
             {

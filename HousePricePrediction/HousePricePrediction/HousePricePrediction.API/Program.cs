@@ -33,7 +33,7 @@
 
 // app.Run();
 
-namespace HousePricePrediction.API.Houses
+namespace HousePricePrediction.API
 {
     public class Program
     {
