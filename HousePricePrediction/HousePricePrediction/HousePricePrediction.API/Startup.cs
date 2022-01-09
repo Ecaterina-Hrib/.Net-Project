@@ -1,16 +1,10 @@
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using System.IO;
 using System.Reflection;
-using HousePricePrediction.API.Models;
-using HousePricePrediction.API.DB;
-using HousePricePrediction.API.Services;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-
-
-
+using HousePricePrediction.API.Persistence.Repository;
+using HousePricePrediction.API.Persitence.Context;
+using HousePricePrediction.API.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace HousePricePrediction.API
 {
@@ -26,22 +20,18 @@ namespace HousePricePrediction.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<Services.HouseService>();
-            services.AddScoped<Services.UserService>();
-            services.AddControllers();
-            services.AddSwaggerGen(); 
-            // services.AddSwaggerGen(c =>
-            // {
-            //     c.SwaggerDoc("v1", new OpenApiInfo { Title = "House Price Predictionx", Version = "v1" });
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+            });
 
-            //     c.IncludeXmlComments(
-            //         Path.Combine(
-            //             AppContext.BaseDirectory,
-            //             $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"
-            //         )
-            //     );
-            // });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllers();
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IHouseRepository), typeof(HouseRepository));
+            services.AddSwaggerGen(); 
 
             services.AddDbContext<DatabaseContext>(options =>
                 options
@@ -52,6 +42,18 @@ namespace HousePricePrediction.API
             );
 
             services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "House Price Prediction", Version = "v1" });
+
+                c.IncludeXmlComments(
+                    Path.Combine(
+                        AppContext.BaseDirectory,
+                        $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"
+                    )
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

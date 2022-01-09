@@ -1,6 +1,7 @@
-﻿using HousePricePrediction.API.Services;
-using HousePricePrediction.API.Models;
+﻿using HousePricePrediction.API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using HousePricePrediction.API.Interfaces;
+using HousePricePrediction.API.Resources;
 
 namespace HousePricePrediction.API.Controllers
 {
@@ -8,61 +9,72 @@ namespace HousePricePrediction.API.Controllers
     [ApiController]
     public class HousesController : ControllerBase
     {
-        private readonly HouseService _service;
+        private readonly IRepository<House> _houseRepository;
 
-        private readonly UserService _userService;
-
-        public HousesController(HouseService service, UserService userService)
+        public HousesController(IRepository<House> repository)
         {
-            this._service = service;
-            this._userService = userService;
+            _houseRepository = repository;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateHouseAsync(string username, House _newHouse)
-        {
-            var user = await _userService.GetUserByUsernameAsync(username);
-            if (user.IsSuccess)
-                _newHouse._user = user.User;
-            else
-            {
-                return BadRequest(user.ErrorMessage);
-
-            }
-            Console.WriteLine(_newHouse._user._username);
-            Console.WriteLine(user.User._username);
-
-            var house = await _service.CreateHouseAsync(_newHouse);
-            if (house.IsSuccess)
-            {
-                return NoContent();
-            }
-
-            return BadRequest(house.ErrorMessage);
-        }
         [HttpGet]
-        public async Task<IActionResult> GetHousesAsync()
+        public async Task<ActionResult<IEnumerable<House>>> GetHouses()
         {
-            var houses = await _service.GetHousesAsync();
-            if (houses.IsSuccess)
-            {
-                return Ok(houses.Houses);
-            }
-
-            return NotFound(houses.ErrorMessage);
+            return Ok(await _houseRepository.GetAllAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetHouseAsync(Guid id)
+        public async Task<ActionResult<House>> GetHouseById(Guid id)
         {
-            var house = await _service.GetHouseAsync(id);
-            if (house.IsSuccess)
+            House house = await _houseRepository.GetByIdAsync(id);
+
+            if (house == null)
             {
-                return Ok(house.House);
+                return NotFound(Messages.HouseNotFoundMessage(id));
             }
 
-            return NotFound(house.ErrorMessage);
+            return Ok(house);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> CreateHouse(House house)
+        {
+            if (house == null)
+            {
+                return BadRequest(Messages.InvalidData);
+            }
+
+            await _houseRepository.CreateAsync(house);
+            return CreatedAtAction("GetHouseById", new { id = house.Id }, house);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateHouse(House house)
+        {
+            if (house == null)
+            {
+                return BadRequest(Messages.InvalidData);
+            }
+
+            if (!await _houseRepository.ExistsAsync(house.Id))
+            {
+                return NotFound(Messages.HouseNotFoundMessage(house.Id));
+            }
+
+            await _houseRepository.UpdateAsync(house);
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> RemoveHouse(Guid id)
+        {
+            House house = await _houseRepository.GetByIdAsync(id);
+            if (house == null)
+            {
+                return NotFound(Messages.HouseNotFoundMessage(id));
+            }
+
+            await _houseRepository.RemoveAsync(house);
+            return NoContent();
+        }
     }
 }

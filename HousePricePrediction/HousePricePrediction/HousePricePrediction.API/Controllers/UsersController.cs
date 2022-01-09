@@ -1,52 +1,80 @@
-﻿using HousePricePrediction.API.Services;
-using HousePricePrediction.API.Models;
+﻿using HousePricePrediction.API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using HousePricePrediction.API.Interfaces;
+using HousePricePrediction.API.Resources;
 
 namespace HousePricePrediction.API.Controllers
 {
     [ApiController]
     [Route("api/v1/users")]
-    public class UsersController : ControllerBase
+   public class UsersController : ControllerBase
     {
-        private readonly UserService _service;
+        private readonly IRepository<User> _userRepository;
 
-        public UsersController(UserService _service)
+        public UsersController(IRepository<User> repository)
         {
-            this._service = _service;
+            _userRepository = repository;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUserAsync(User _newUser)
-        {
-            var user = await _service.CreateUserAsync(_newUser);
-            if (user.IsSuccess)
-            {
-                return NoContent();
-            }
-
-            return BadRequest(user.ErrorMessage);
-        }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            var result = await _service.GetUsersAsync();
-            if (result.IsSuccess)
-            {
-                return Ok(result.Users);
-            }
-            return NotFound();
+            return Ok(await _userRepository.GetAllAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<ActionResult<User>> GetUserById(Guid id)
         {
-            var result = await _service.GetUserAsync(id);
-            if (result.IsSuccess)
+            User user = await _userRepository.GetByIdAsync(id);
+
+            if (user == null)
             {
-                return Ok(result.User);
+                return NotFound(Messages.UserNotFoundMessage(id));
             }
-            return NotFound();
+
+            return Ok(user);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> CreateUser(User user)
+        {
+            if (user == null)
+            {
+                return BadRequest(Messages.InvalidData);
+            }
+
+            await _userRepository.CreateAsync(user);
+            return CreatedAtAction("GetUserById", new { id = user.Id }, user);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(User user)
+        {
+            if (user == null)
+            {
+                return BadRequest(Messages.InvalidData);
+            }
+
+            if (!await _userRepository.ExistsAsync(user.Id))
+            {
+                return NotFound(Messages.UserNotFoundMessage(user.Id));
+            }
+
+            await _userRepository.UpdateAsync(user);
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> RemoveUser(Guid id)
+        {
+            User user = await _userRepository.GetByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound(Messages.UserNotFoundMessage(id));
+            }
+
+            await _userRepository.RemoveAsync(user);
+            return NoContent();
+        }
     }
 }

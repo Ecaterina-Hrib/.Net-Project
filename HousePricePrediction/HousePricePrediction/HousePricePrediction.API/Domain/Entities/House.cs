@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using HousePricePrediction.API.Domain.Common;
 
-namespace HousePricePrediction.API.Models
+namespace HousePricePrediction.API.Entities
 {
     [Table("houses")]
-    public class House
+    public class House : BaseEntity
     { 
         
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
