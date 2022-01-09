@@ -19,7 +19,7 @@ namespace HousePricePrediction.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHouseAsync(string username, House _newHouse)
+        public async Task<ActionResult> CreateHouseAsync(string username, House _newHouse)
         {
             var user = await _userService.GetUserByUsernameAsync(username);
             if (user.IsSuccess)
@@ -41,7 +41,7 @@ namespace HousePricePrediction.API.Controllers
             return BadRequest(house.ErrorMessage);
         }
         [HttpGet]
-        public async Task<IActionResult> GetHousesAsync()
+        public async Task<ActionResult> GetHousesAsync()
         {
             var houses = await _service.GetHousesAsync();
             if (houses.IsSuccess)
@@ -53,7 +53,7 @@ namespace HousePricePrediction.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetHouseAsync(Guid id)
+        public async Task<ActionResult<House>> GetHouseAsync(Guid id)
         {
             var house = await _service.GetHouseAsync(id);
             if (house.IsSuccess)
