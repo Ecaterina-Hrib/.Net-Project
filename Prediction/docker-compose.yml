@@ -3,10 +3,9 @@
 version: '3.4'
 
 services:
-  webapi:
+  api:
     image: api
     build:
-      context:
-      dockerfile: API/Dockerfile
-    ports:
-      - 44355
+      context: .
+      dockerfile: Dockerfile
+    command: ["dotnet","run"]

@@ -1,10 +1,12 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
+#EXPOSE $PORT
+# ENV ASPNETCORE_URLS=http://*:5001
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["API/API.csproj", "API/"]
-RUN dotnet restore "API/API.csproj"
+COPY ["API/API.csproj", "./API/"]
+RUN dotnet restore "./API/API.csproj"
 COPY . .
 WORKDIR "/src/API"
 RUN dotnet build "API.csproj" -c Release -o /app/build
@@ -15,5 +17,6 @@ RUN dotnet publish "API.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet DockerAPI.dll
+ENTRYPOINT ["dotnet","API.dll"]
+# CMD ASPNETCORE_URLS=http://*:$PORT dotnet API.dll
 
