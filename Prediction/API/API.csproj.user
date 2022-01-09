@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>API</ActiveDebugProfile>
   </PropertyGroup>
-
+  <PropertyGroup>
   <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

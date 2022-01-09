@@ -5579,19 +5579,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/rmacovei/.nuget/packages/": {}
+    "C:\\Users\\Khety\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
+      "projectUniqueName": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj",
       "projectName": "HousePrice.ConsoleApp",
-      "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
-      "packagesPath": "/Users/rmacovei/.nuget/packages/",
-      "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/",
+      "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\Khety\\.nuget\\packages\\",
+      "outputPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Khety\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5603,8 +5603,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
-              "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj"
+            "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj": {
+              "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj"
             }
           }
         }
@@ -5643,7 +5643,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

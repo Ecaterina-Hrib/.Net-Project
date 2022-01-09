@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "JXu2AK7exIL40lf2nPE5+jDYpAyyTwqJDaXRGgrCYHU=",
+  "Source": "HousePricePrediction.API.Houses",
+  "BasePath": "_content/HousePricePrediction.API.Houses",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

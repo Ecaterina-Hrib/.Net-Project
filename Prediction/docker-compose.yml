@@ -6,7 +6,7 @@ services:
   webapi:
     image: api
     build:
-      context: .
+      context:
       dockerfile: API/Dockerfile
     ports:
       - 44355

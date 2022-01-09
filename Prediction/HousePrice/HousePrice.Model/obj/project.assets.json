@@ -3653,19 +3653,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/rmacovei/.nuget/packages/": {}
+    "C:\\Users\\Khety\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
+      "projectUniqueName": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj",
       "projectName": "HousePrice.Model",
-      "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
-      "packagesPath": "/Users/rmacovei/.nuget/packages/",
-      "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/",
+      "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj",
+      "packagesPath": "C:\\Users\\Khety\\.nuget\\packages\\",
+      "outputPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Khety\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -3714,7 +3714,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

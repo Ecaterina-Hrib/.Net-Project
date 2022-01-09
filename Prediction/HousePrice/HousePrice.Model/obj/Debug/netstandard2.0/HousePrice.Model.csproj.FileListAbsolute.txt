@@ -9,3 +9,14 @@
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.csproj.CoreCompileInputs.cache
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.dll
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/Debug/netstandard2.0/HousePrice.Model.pdb
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\bin\Debug\netstandard2.0\MLModel.zip
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\bin\Debug\netstandard2.0\HousePrice.Model.deps.json
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\bin\Debug\netstandard2.0\HousePrice.Model.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\bin\Debug\netstandard2.0\HousePrice.Model.pdb
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.csproj.AssemblyReference.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.AssemblyInfoInputs.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.AssemblyInfo.cs
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.csproj.CoreCompileInputs.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.Model\obj\Debug\netstandard2.0\HousePrice.Model.pdb

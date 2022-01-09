@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj": {}
+    "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\API\\API.csproj": {}
   },
   "projects": {
-    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj": {
+    "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj",
+        "projectUniqueName": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/API.csproj",
-        "packagesPath": "/Users/rmacovei/.nuget/packages/",
-        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/API/obj/",
+        "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Khety\\.nuget\\packages\\",
+        "outputPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Khety\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -26,11 +26,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj": {
-                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj"
+              "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj": {
+                "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj"
               },
-              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
-                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj"
+              "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj": {
+                "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj"
               }
             }
           }
@@ -76,21 +76,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj": {
+    "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
+        "projectUniqueName": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj",
         "projectName": "HousePrice.ConsoleApp",
-        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/HousePrice.ConsoleApp.csproj",
-        "packagesPath": "/Users/rmacovei/.nuget/packages/",
-        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/",
+        "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\HousePrice.ConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\Khety\\.nuget\\packages\\",
+        "outputPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Khety\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -102,8 +102,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
-                "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj"
+              "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj": {
+                "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj"
               }
             }
           }
@@ -142,21 +142,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj": {
+    "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
+        "projectUniqueName": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj",
         "projectName": "HousePrice.Model",
-        "projectPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/HousePrice.Model.csproj",
-        "packagesPath": "/Users/rmacovei/.nuget/packages/",
-        "outputPath": "/Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.Model/obj/",
+        "projectPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\HousePrice.Model.csproj",
+        "packagesPath": "C:\\Users\\Khety\\.nuget\\packages\\",
+        "outputPath": "D:\\_ user ecaaa\\Documents\\GitHub\\.Net-Project\\Prediction\\HousePrice\\HousePrice.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rmacovei/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Khety\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -205,7 +205,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

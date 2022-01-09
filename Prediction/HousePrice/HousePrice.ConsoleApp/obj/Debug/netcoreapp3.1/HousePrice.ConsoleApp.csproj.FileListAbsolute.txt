@@ -35,3 +35,40 @@
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/Debug/netcoreapp3.1/HousePrice.ConsoleApp.dll
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/Debug/netcoreapp3.1/HousePrice.ConsoleApp.pdb
 /Users/rmacovei/Desktop/UniWork/NET/Prediction/HousePrice/HousePrice.ConsoleApp/obj/Debug/netcoreapp3.1/HousePrice.ConsoleApp.genruntimeconfig.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\MLModel.zip
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.exe
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.deps.json
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.runtimeconfig.json
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.runtimeconfig.dev.json
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.ConsoleApp.pdb
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Core.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Data.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.KMeansClustering.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.PCA.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.StandardTrainers.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Transforms.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.CpuMath.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.DataView.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.FastTree.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libLdaNative.so
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libLdaNative.dylib
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\LdaNative.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\LdaNative.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libFastTreeNative.so
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libFastTreeNative.dylib
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\FastTreeNative.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\FastTreeNative.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.Model.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\bin\Debug\netcoreapp3.1\HousePrice.Model.pdb
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.csproj.AssemblyReference.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.AssemblyInfoInputs.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.AssemblyInfo.cs
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.csproj.CoreCompileInputs.cache
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.csproj.CopyComplete
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.dll
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.pdb
+D:\_ user ecaaa\Documents\GitHub\.Net-Project\Prediction\HousePrice\HousePrice.ConsoleApp\obj\Debug\netcoreapp3.1\HousePrice.ConsoleApp.genruntimeconfig.cache
