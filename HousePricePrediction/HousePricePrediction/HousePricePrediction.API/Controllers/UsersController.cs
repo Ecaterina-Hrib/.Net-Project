@@ -26,6 +26,17 @@ namespace HousePricePrediction.API.Controllers
 
             return BadRequest(user.ErrorMessage);
         }
+                [HttpPost]
+        public async Task<IActionResult> LoginUserAsync(UserCredentials user)
+        {
+            var login = await _service.Login(user._email, user._password);
+            if (login.IsSuccess)
+            {
+                return Ok(login.Id);
+            }
+
+            return BadRequest(login.ErrorMessage);
+        }
         [HttpGet]
         public async Task<IActionResult> Get()
         {

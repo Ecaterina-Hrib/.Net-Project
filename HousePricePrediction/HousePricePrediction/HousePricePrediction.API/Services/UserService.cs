@@ -2,6 +2,7 @@
 using HousePricePrediction.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Effortless.Net.Encryption;
 
 namespace HousePricePrediction.API.Services
 {
@@ -12,10 +13,13 @@ namespace HousePricePrediction.API.Services
         private readonly IConfiguration configuration;
         private readonly ILogger<UserService> logger;
 
+        private byte[] key = Bytes.GenerateKey();
+        private byte[] iv = Bytes.GenerateIV();
+
         public UserService(DatabaseContext context, IConfiguration configuration, ILogger<UserService> logger)
         {
             this.context = context;
-            this.configuration =  configuration;
+            this.configuration = configuration;
             this.logger = logger;
         }
 
@@ -24,6 +28,8 @@ namespace HousePricePrediction.API.Services
             try
             {
                 logger?.LogInformation("Create a user");
+                var password = _newUser._password;
+                _newUser._password = Strings.Encrypt(password, key, iv);
                 var user = await context.Users.AddAsync(_newUser);
                 if (user != null)
                 {
@@ -39,7 +45,32 @@ namespace HousePricePrediction.API.Services
                 return (false, new User(), ex.Message);
             }
         }
+        public async Task<(bool IsSuccess, Guid Id, string ErrorMessage)> Login(string email, string password)
+        {
+            try
+            {
+                logger?.LogInformation("Trying to login...");
+                var user = await context.Users.SingleOrDefaultAsync(c => c._email== email);
+                if (user != null)
+                {
+                    logger?.LogInformation("Email exists");
+                    if(Strings.Decrypt(user._password, key, iv).Equals(password))
+                    {
+                        return (true, user._id, "Correct credentials!");
+                    }
+                    
+                    return (false, new Guid(), "Wrong password!");
 
+                }
+                return (false, new Guid(), "Email Not Found");
+
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, new Guid(), ex.Message);
+            }
+        }
         public async Task<(bool IsSuccess, User User, string ErrorMessage)> AddHouseAsync(User userData, House house)
         {
             try

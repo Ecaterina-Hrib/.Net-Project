@@ -11,14 +11,15 @@ namespace HousePricePrediction.API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid _id { get; set; }
-        public User? _user { get; set; }
+        [Required]
+        public virtual User? _user { get; set; }
         public String? _description { get; set; }
         public String? _title { get; set; }
         public String? _city { get; set; }
         public String? _country { get; set; }
         public String? _address { get; set; }
-        public Double? _latitude { get; set; }
-        public Double? _longitude { get; set; }
+        public float? _latitude { get; set; }
+        public float? _longitude { get; set; }
         public float? _constructionYear { get; set; }
         public float? _noOfRooms { get; set; }
         public float? _floor { get; set; }
@@ -31,8 +32,10 @@ namespace HousePricePrediction.API.Models
         public float? _sqft_basement  { get; set; }
         public float? _yr_renovated  { get; set; }
         public float? _zipcode  { get; set; }
-        [NotMapped]
-        public RecommendedPrice _recommendedPrice { get; set; }
+        public float _recommendedSellPrice { get; set; }
+
+        public float _recommendedRentPrice { get; set; }
+
         public float? _currentPrice { get; set; }
         public DateTime _creationDate { get; set; }
         public int _views { get; set; }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HousePricePrediction.API.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HousePricePrediction.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220110001432_UpdateDB")]
+    partial class UpdateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,12 +76,12 @@ namespace HousePricePrediction.API.Migrations
                         .HasColumnType("real")
                         .HasColumnName("_land_surface");
 
-                    b.Property<float?>("_latitude")
-                        .HasColumnType("real")
+                    b.Property<double?>("_latitude")
+                        .HasColumnType("double precision")
                         .HasColumnName("_latitude");
 
-                    b.Property<float?>("_longitude")
-                        .HasColumnType("real")
+                    b.Property<double?>("_longitude")
+                        .HasColumnType("double precision")
                         .HasColumnName("_longitude");
 
                     b.Property<float?>("_noOfBathrooms")
@@ -95,14 +97,6 @@ namespace HousePricePrediction.API.Migrations
                         .HasColumnType("text[]")
                         .HasColumnName("_pictures");
 
-                    b.Property<float>("_recommendedRentPrice")
-                        .HasColumnType("real")
-                        .HasColumnName("_recommended_rent_price");
-
-                    b.Property<float>("_recommendedSellPrice")
-                        .HasColumnType("real")
-                        .HasColumnName("_recommended_sell_price");
-
                     b.Property<float?>("_sqft_basement")
                         .HasColumnType("real")
                         .HasColumnName("_sqft_basement");
@@ -115,7 +109,7 @@ namespace HousePricePrediction.API.Migrations
                         .HasColumnType("text")
                         .HasColumnName("_title");
 
-                    b.Property<Guid>("_user_id")
+                    b.Property<Guid?>("_user_id")
                         .HasColumnType("uuid")
                         .HasColumnName("_user_id");
 
@@ -199,8 +193,6 @@ namespace HousePricePrediction.API.Migrations
                     b.HasOne("HousePricePrediction.API.Models.User", "_user")
                         .WithMany("_forSell")
                         .HasForeignKey("_user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_houses_users__user_temp_id");
 
                     b.Navigation("_user");

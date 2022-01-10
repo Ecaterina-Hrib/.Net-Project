@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HousePricePrediction.API.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HousePricePrediction.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220110001935_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace HousePricePrediction.API.Migrations
                         .HasColumnType("text")
                         .HasColumnName("_title");
 
-                    b.Property<Guid>("_user_id")
+                    b.Property<Guid?>("_user_id")
                         .HasColumnType("uuid")
                         .HasColumnName("_user_id");
 
@@ -199,8 +201,6 @@ namespace HousePricePrediction.API.Migrations
                     b.HasOne("HousePricePrediction.API.Models.User", "_user")
                         .WithMany("_forSell")
                         .HasForeignKey("_user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_houses_users__user_temp_id");
 
                     b.Navigation("_user");

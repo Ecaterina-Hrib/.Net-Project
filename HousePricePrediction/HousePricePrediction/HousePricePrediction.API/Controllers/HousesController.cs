@@ -43,17 +43,18 @@ namespace HousePricePrediction.API.Controllers
             var path = BASE_URL + "?"+ $"Date={_newHouse._creationDate:yyyyMMddHHmmss}&Price={_newHouse._currentPrice}&Bedrooms={_newHouse._noOfRooms}&Bathrooms={_newHouse._noOfBathrooms}&Sqft_living={_newHouse._surface}&Sqft_lot={_newHouse._landSurface}&Floors={_newHouse._floor}&View={_newHouse._surface}&Condition={_newHouse._condition}&Grade={_newHouse._grade}&Sqft_basement={_newHouse._sqft_basement}&Yr_built={_newHouse._constructionYear}&Yr_renovated={_newHouse._yr_renovated}&Zipcode={_newHouse._zipcode}&Lat={_newHouse._latitude}&Long={_newHouse._longitude}";
             HttpResponseMessage response = await client.GetAsync(path);
 
-            RecommendedPrice prices = null;
+            RecommendedPrice prices = new RecommendedPrice();
             if(response.IsSuccessStatusCode)
             {
                 prices = await response.Content.ReadAsAsync<RecommendedPrice>();
-                _newHouse._recommendedPrice = prices;
+                _newHouse._recommendedSellPrice = prices.sell_price;
+                _newHouse._recommendedRentPrice = prices.rent_price;
             }
             var house = await _service.CreateHouseAsync(_newHouse);
             if (house.IsSuccess)
             {
                 await _userService.AddHouseAsync(user.User, _newHouse);
-                return Ok(house.House._recommendedPrice);
+                return Ok(prices);
             }
 
             return BadRequest(house.ErrorMessage);
