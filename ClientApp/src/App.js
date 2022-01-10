@@ -4,6 +4,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BrHouse from "./pages/BRHouse/brHouse";
+import SellHouse from "./pages/SellHouse/sellHouse";
+import Login from "./pages/login/login";
+import Signup from "./pages/signup/signup";
+import Top10 from "./pages/top10/top10";
+import HouseTemplate from "./pages/houseTemplate/houseTemplate";
+
 function App() {
   return (
     <>
@@ -12,9 +18,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/buy" element={<BrHouse/>}/>
-          <Route path="/login" />
-          <Route path="/signup" />
-          <Route path="/displayHouses" />
+          <Route path="/sell" element={<SellHouse/>}/>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/ourRecommandations" element={<Top10/>} />
+          <Route path="/housetemplate/:id" element={<HouseTemplate/>} />
+          <Route path="/profile" />
         </Routes>
       </BrowserRouter>
     </>

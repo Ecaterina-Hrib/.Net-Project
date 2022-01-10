@@ -43,4 +43,25 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 1em;
+<<<<<<< Updated upstream:ClientApp/src/components/houseCard/houseCard.css
+=======
+}
+
+@media (max-width:1000px) 
+{
+    .cardStyle{
+        margin-bottom: 3em;
+        min-height: 500px;
+    }
+    .buttons{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .buyButton,.rentButton{
+        width: 50%;
+        text-align: center;
+        margin-bottom: 1vh;
+    }
+>>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/components/houseCard/houseCard.css
 }

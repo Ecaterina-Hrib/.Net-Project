@@ -4,13 +4,57 @@
     display: flex;
 }
 .filters{
+<<<<<<< Updated upstream:ClientApp/src/pages/BRHouse/brHouse.css
     width: 30%;
     height:100%;
     background-color: gainsboro;
+=======
+    width: 20%;
+    height: 91%;
+    display: flex;
+    justify-content: center;
+>>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/pages/BRHouse/brHouse.css
 }
 .cards{
     width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+<<<<<<< Updated upstream:ClientApp/src/pages/BRHouse/brHouse.css
 }
+=======
+}
+
+.filterBox{
+  height: 91%;
+  margin-top: 3em;
+  border: 1px solid black;
+  width: 80%;
+  border-radius: 1em;
+  color: white;
+  background: linear-gradient(135deg, #eecda3, #ef629f);
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+  padding-top: 3em;
+  text-align: center;
+}
+
+.cont input{
+  width: 80%;
+}
+
+.sliderContainer button{
+    border-radius: 3em;
+    width: 6em;
+    background-color: white;
+}
+
+@media (max-width: 800px)
+  {
+    .cards{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+>>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/pages/BRHouse/brHouse.css

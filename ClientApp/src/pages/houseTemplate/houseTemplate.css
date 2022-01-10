@@ -1,0 +1,38 @@
+.houseTemplate {
+    margin: 5vw 25vw 10vw 25vw;
+    text-align: center;
+}
+
+.houseTemplate .topPage img {
+    width: 35vw;
+    height: auto;
+}
+
+.houseTemplate .topPage .rightSide button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 30px;
+    margin-top: 3vw;
+}
+
+.topPage {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rightSide {
+    flex-direction: column;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    justify-content: space-between;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}

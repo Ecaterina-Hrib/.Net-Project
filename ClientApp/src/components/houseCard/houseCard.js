@@ -1,4 +1,5 @@
 import './houseCard.css';
+import {Link} from "react-router-dom";
 function HouseCard(props){
     return(
         <div className="cardStyle">
@@ -8,8 +9,9 @@ function HouseCard(props){
             <p>Type: {props.house.apartament} </p>
             <p>Number of rooms: {props.house.nrofrooms}</p>
             <div className="buttons">
-                <button className="buyButton">Buy</button>
-                <button className="rentButton">Rent</button>
+                <Link to="/housetemplate/123">
+                    <button className="buyButton">View More</button>
+                </Link>
             </div>
         </div>
            );
