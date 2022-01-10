@@ -4,29 +4,20 @@
     display: flex;
 }
 .filters{
-<<<<<<< Updated upstream:ClientApp/src/pages/BRHouse/brHouse.css
-    width: 30%;
-    height:100%;
-    background-color: gainsboro;
-=======
     width: 20%;
     height: 91%;
     display: flex;
     justify-content: center;
->>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/pages/BRHouse/brHouse.css
 }
 .cards{
     width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-<<<<<<< Updated upstream:ClientApp/src/pages/BRHouse/brHouse.css
-}
-=======
 }
 
 .filterBox{
-  height: 91%;
+  height: 95%;
   margin-top: 3em;
   border: 1px solid black;
   width: 80%;
@@ -57,4 +48,3 @@
       align-items: center;
     }
   }
->>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/pages/BRHouse/brHouse.css

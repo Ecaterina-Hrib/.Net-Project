@@ -43,8 +43,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 1em;
-<<<<<<< Updated upstream:ClientApp/src/components/houseCard/houseCard.css
-=======
 }
 
 @media (max-width:1000px) 
@@ -63,5 +61,4 @@
         text-align: center;
         margin-bottom: 1vh;
     }
->>>>>>> Stashed changes:HousePricePrediction/ClientApp/src/components/houseCard/houseCard.css
 }

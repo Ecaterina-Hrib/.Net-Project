@@ -1,6 +1,5 @@
 import "./homeCard.css";
 import Carousel from 'react-bootstrap/Carousel';
-import House from '../../images/house.jpeg';
 import House2 from '../../images/house2.jpeg';
 import House3 from '../../images/house3.jpeg';
 import House4 from '../../images/house4.jpeg';
