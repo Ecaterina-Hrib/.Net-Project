@@ -59,5 +59,14 @@ namespace HousePricePrediction.API.Controllers
             return NotFound();
         }
 
+        public async Task<ActionResult> UpdateUser(User _newUser)
+        {
+            var result = await _service.UpdateAsync(id);
+            if (result.IsSuccess)
+            {
+                return Ok(result.User);
+            }
+            return NotFound();
+        }
     }
 }
