@@ -19,7 +19,6 @@ namespace HousePricePrediction.API.Models
         public String? _email { get; set; }
         public String? _password { get; set; }
         public DateTime _creationDate { get; set; }
-        [Required]
-        public virtual List<House>? _forSell { get; set; }
+        public virtual List<House> _forSell { get; set; } = new List<House>();
     }
 }

@@ -59,10 +59,22 @@ namespace HousePricePrediction.API.Controllers
 
             return BadRequest(house.ErrorMessage);
         }
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetHousesAsync()
         {
             var houses = await _service.GetHousesAsync();
+            if (houses.IsSuccess)
+            {
+                return Ok(houses.Houses);
+            }
+
+            return NotFound(houses.ErrorMessage);
+        }
+
+        [HttpGet("recommended")]
+        public async Task<IActionResult> GetRecommendedHousesAsync()
+        {
+            var houses = await _service.GetRecommendedHousesAsync();
             if (houses.IsSuccess)
             {
                 return Ok(houses.Houses);

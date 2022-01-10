@@ -15,7 +15,7 @@ namespace HousePricePrediction.API.Controllers
             this._service = _service;
         }
 
-        [HttpPost]
+        [HttpPost("/signup")]
         public async Task<IActionResult> CreateUserAsync(User _newUser)
         {
             var user = await _service.CreateUserAsync(_newUser);
@@ -26,7 +26,7 @@ namespace HousePricePrediction.API.Controllers
 
             return BadRequest(user.ErrorMessage);
         }
-                [HttpPost]
+        [HttpPost("/login")]
         public async Task<IActionResult> LoginUserAsync(UserCredentials user)
         {
             var login = await _service.Login(user._email, user._password);
@@ -37,7 +37,7 @@ namespace HousePricePrediction.API.Controllers
 
             return BadRequest(login.ErrorMessage);
         }
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> Get()
         {
             var result = await _service.GetUsersAsync();

@@ -2,6 +2,8 @@
 using HousePricePrediction.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
+using System;
 
 
 namespace HousePricePrediction.API.Services
@@ -12,6 +14,8 @@ namespace HousePricePrediction.API.Services
 
         private readonly IConfiguration configuration;
         private readonly ILogger<HouseService> logger;
+
+        private const int RECOMMENDED_HOUSES_ITEMS = 10;
 
         public HouseService(DatabaseContext context, IConfiguration configuration, ILogger<HouseService> logger)
         {
@@ -28,7 +32,6 @@ namespace HousePricePrediction.API.Services
                 var house = await context.Houses.AddAsync(_newHouse);
                 if (house != null)
                 {
-                    // var result = mapper.Map<HouseModel>(house);
                     await context.SaveChangesAsync();
                     return (true, house.Entity, "created!");
                 }
@@ -49,7 +52,8 @@ namespace HousePricePrediction.API.Services
                 var house = await context.Houses.FirstOrDefaultAsync(p=>p._id == id);
                 if (house != null)
                 {
-                    // var result = mapper.Map<HouseModel>(house);
+                    house._views++;
+                    await context.SaveChangesAsync();
                     return (true, house, "");
                 }
 
@@ -70,10 +74,27 @@ namespace HousePricePrediction.API.Services
                 var houses = await context.Houses.ToListAsync();
                 if (houses != null && houses.Any())
                 {
-                    // logger?.LogInformation($"{houses.Count} house(s) found");
-
-                    // var result = mapper.Map<IEnumerable<HouseModel>>(houses);
                     return (true, houses, "null");
+                }
+
+                return (false, Enumerable.Empty<House>(), "Not found");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, Enumerable.Empty<House>(), ex.Message);
+            }
+        }
+        public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetRecommendedHousesAsync()
+        {
+            try
+            {
+                logger?.LogInformation("Quering houses");
+                var houses = await context.Houses.ToListAsync();
+                if (houses != null && houses.Any())
+                {
+                    var numberOfItems = Math.Min(RECOMMENDED_HOUSES_ITEMS, houses.Count());
+                    return (true, houses.OrderByDescending(h => (h._recommendedSellPrice/h._currentPrice*100)).Take(numberOfItems), "Recommended houses");
                 }
 
                 return (false, Enumerable.Empty<House>(), "Not found");
