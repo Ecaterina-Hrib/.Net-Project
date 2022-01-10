@@ -35,7 +35,7 @@
 
 namespace HousePricePrediction.API
 {
-    public class Program
+       public class Program
     {
         public static void Main(string[] args)
         {
@@ -47,6 +47,7 @@ namespace HousePricePrediction.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT")); 
                 });
     }
 }
