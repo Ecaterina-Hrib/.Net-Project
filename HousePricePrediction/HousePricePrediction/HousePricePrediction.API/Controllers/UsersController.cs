@@ -61,7 +61,7 @@ namespace HousePricePrediction.API.Controllers
 
         public async Task<ActionResult> UpdateUser(User _newUser)
         {
-            var result = await _service.UpdateAsync(id);
+            var result = await _service.UpdateAsync(_newUser);
             if (result.IsSuccess)
             {
                 return Ok(result.User);
