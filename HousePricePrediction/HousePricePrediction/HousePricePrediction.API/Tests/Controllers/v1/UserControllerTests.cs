@@ -4,7 +4,7 @@ using HousePricePrediction.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 
-namespace HousePricePrediction.API.Tests
+namespace HousePricePrediction.API.Tests.v1
 {
     [Collection("Sequential")]
     public class UsersControllerTest : DatabaseBaseTest

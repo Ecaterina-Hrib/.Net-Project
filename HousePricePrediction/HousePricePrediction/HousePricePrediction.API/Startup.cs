@@ -8,9 +8,7 @@ using HousePricePrediction.API.Services;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-
-
-
+using HousePricePrediction.API.Tests.v1;
 
 namespace HousePricePrediction.API
 {
@@ -29,6 +27,8 @@ namespace HousePricePrediction.API
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<Services.HouseService>();
             services.AddScoped<Services.UserService>();
+            services.Add(new ServiceDescriptor(typeof(UsersControllerTest), Configuration));   
+            services.Add(new ServiceDescriptor(typeof(HousesControllerTest), Configuration));   
             services.AddControllers();
             services.AddSwaggerGen(); 
             // services.AddSwaggerGen(c =>

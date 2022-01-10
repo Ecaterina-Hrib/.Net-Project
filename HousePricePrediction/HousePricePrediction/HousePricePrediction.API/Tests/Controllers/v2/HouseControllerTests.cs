@@ -4,7 +4,7 @@ using Xunit;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace HousePricePrediction.API.Tests
+namespace HousePricePrediction.API.Tests.v2
 {
     public class HouseControllerTests : DatabaseBaseTest
     {
