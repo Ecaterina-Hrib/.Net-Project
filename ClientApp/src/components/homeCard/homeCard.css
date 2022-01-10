@@ -4,38 +4,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-color: grey;
 }
 
 .background{
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     display: flex;
-    background-color: darkred;
-    margin-top: 10em;
+}
+
+.backgroundText{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 32vh;
+    font-size: 7vw;
+    color: white;
+
 }
 
 .photoContainer{
     display: flex;
     width: 100%;
-    flex-direction: row !important;
     justify-content: space-evenly;
-    max-height: 25em;
+    height: 100%;
 }
 
 .photoContainer img{
-    max-width:80vw;
-    height: 50vh;
-    padding-top: 2em;
-    padding-bottom: 7em;
-    object-fit: cover;
-}
-
-.background p{
-    text-align: center;
-    padding-top: 3em;
-    color:white;
+    width: 100%;
+    height: 100%;
 }
 .carousel{
     width: 100% !important;
+}
+
+.carousel-inner{
+    height: 100%;
+}
+
+.carousel-item{
+    height: 100% !important;
 }

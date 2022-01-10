@@ -11,17 +11,37 @@ function HomeCard(){
             <div className="background">
                 <Carousel>
                     <Carousel.Item>
-                       <p>Welcome to House Shop!</p>
                         <div className="photoContainer">
-                            <img src={House5}/>
-                            <img src={House2}/>
+                            <div className="backgroundText">
+                                <p>Welcome to the page!</p>
+                            </div>
+                            <img src={House2} alt="b"/>
                         </div>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <p>Welcome to House Shop!</p>
                         <div className="photoContainer">
-                                <img src={House3}/>
-                                <img src={House4}/>
+                            <div className="backgroundText">
+                                <div>
+                                    <p>Welcome to the page!</p>
+                                </div>
+                            </div>
+                            <img src={House3} alt="a"/>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <div className="photoContainer">   
+                            <div className="backgroundText">
+                                <p>Welcome to the page!</p>
+                            </div>
+                            <img src={House4} alt="a"/>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>       
+                        <div className="photoContainer">
+                            <div className="backgroundText">
+                                <p>Welcome to the page!</p>
+                            </div>
+                            <img src={House5} alt="a"/>
                         </div>
                     </Carousel.Item>
                 </Carousel>
