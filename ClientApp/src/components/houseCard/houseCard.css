@@ -1,8 +1,11 @@
 .cardStyle{
-    max-height: 50%;
+    max-height: 29vw ;
+    min-height: 440px;
+    max-width: 60%;
     margin-top: 3em;
     margin-left: 1em;
     margin-right: 1em;
+    margin-bottom: -25em;
     border: 1px solid black;
     border-radius: 1em;
 }
@@ -14,7 +17,9 @@
 }
 
 .cardStyle p{
-    margin-left: 3em;
+    margin-left: 3vh;
+    margin-top: 1vh;
+    font-size: 1.5vh;
 }
 
 .buyButton{
@@ -25,6 +30,7 @@
     text-decoration: none;
     border: none;
     border-radius: 0.5em;
+    font-size: 1.5vh;
 }
 .rentButton{
     color: white;
@@ -34,6 +40,7 @@
     text-decoration: none;
     border: none;
     border-radius: 0.5em;
+    font-size: 1.5vh;
 }
 
 .buttons{
@@ -45,7 +52,7 @@
     padding-top: 1em;
 }
 
-@media (max-width:1000px) 
+@media (max-width:800px) 
 {
     .cardStyle{
         margin-bottom: 3em;
