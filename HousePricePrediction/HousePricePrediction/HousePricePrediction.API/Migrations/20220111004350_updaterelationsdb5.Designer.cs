@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HousePricePrediction.API.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HousePricePrediction.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220111004350_updaterelationsdb5")]
+    partial class updaterelationsdb5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,13 +211,18 @@ namespace HousePricePrediction.API.Migrations
             modelBuilder.Entity("HousePricePrediction.API.Models.House", b =>
                 {
                     b.HasOne("HousePricePrediction.API.Models.User", "_user")
-                        .WithMany()
+                        .WithMany("_forSell")
                         .HasForeignKey("_user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_houses_users__user_temp_id");
 
                     b.Navigation("_user");
+                });
+
+            modelBuilder.Entity("HousePricePrediction.API.Models.User", b =>
+                {
+                    b.Navigation("_forSell");
                 });
 #pragma warning restore 612, 618
         }

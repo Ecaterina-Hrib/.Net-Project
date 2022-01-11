@@ -53,6 +53,9 @@ namespace HousePricePrediction.API.Services
                 if (house != null)
                 {
                     house._views++;
+                    var user = await context.Users.FirstOrDefaultAsync(u=>u._id == house._user_id);
+                    user._totalViews++;
+                    house._user = user;
                     await context.SaveChangesAsync();
                     return (true, house, "");
                 }

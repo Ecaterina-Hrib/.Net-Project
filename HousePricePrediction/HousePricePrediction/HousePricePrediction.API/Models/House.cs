@@ -11,7 +11,6 @@ namespace HousePricePrediction.API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid _id { get; set; }
-        [Required]
         public  User? _user { get; set; }
         public Guid _user_id { get; set; }
         public String? _description { get; set; }

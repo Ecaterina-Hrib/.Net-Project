@@ -19,6 +19,11 @@ namespace HousePricePrediction.API.Models
         public String? _email { get; set; }
         public String? _password { get; set; }
         public DateTime _creationDate { get; set; }
-        public virtual List<House> _forSell { get; set; } = new List<House>();
+
+        public  byte[]? key { get; set; }
+        public  byte[]? iv { get; set; }
+
+        public int _totalViews { get; set; } = 0;
+        // public virtual List<House> _forSell { get; set; } = new List<House>();
     }
 }

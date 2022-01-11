@@ -13,8 +13,6 @@ namespace HousePricePrediction.API.Services
         private readonly IConfiguration configuration;
         private readonly ILogger<UserService> logger;
 
-        private byte[] key = Bytes.GenerateKey();
-        private byte[] iv = Bytes.GenerateIV();
 
         public UserService(DatabaseContext context, IConfiguration configuration, ILogger<UserService> logger)
         {
@@ -29,7 +27,11 @@ namespace HousePricePrediction.API.Services
             {
                 logger?.LogInformation("Create a user");
                 var password = _newUser._password;
+                var key = Bytes.GenerateKey();
+                var iv = Bytes.GenerateIV();
                 _newUser._password = Strings.Encrypt(password, key, iv);
+                _newUser.key = key;
+                _newUser.iv = iv;
                 var user = await context.Users.AddAsync(_newUser);
                 if (user != null)
                 {
@@ -54,7 +56,12 @@ namespace HousePricePrediction.API.Services
                 if (user != null)
                 {
                     logger?.LogInformation("Email exists");
-                    if(Strings.Decrypt(user._password, key, iv).Equals(password))
+                    // Console.WriteLine(user._password);
+                    // Console.WriteLine(password);
+                    // Console.WriteLine(Strings.Decrypt(user._password, key, iv));
+
+
+                    if(Strings.Decrypt(user._password, user.key, user.iv).Equals(password))
                     {
                         return (true, user._id, "Correct credentials!");
                     }
@@ -71,29 +78,29 @@ namespace HousePricePrediction.API.Services
                 return (false, new Guid(), ex.Message);
             }
         }
-        public async Task<(bool IsSuccess, User User, string ErrorMessage)> AddHouseAsync(User userData, House house)
-        {
-            try
-            {
-                logger?.LogInformation("Add house to user");
-                var user = await context.Users.SingleOrDefaultAsync(c => c._id == userData._id);
-                if (user != null)
-                {
-                    logger?.LogInformation("User found");
-                    user._forSell.Add(house);
-                    await context.SaveChangesAsync();
-                    return (true, user, "added!");
+        // public async Task<(bool IsSuccess, User User, string ErrorMessage)> AddHouseAsync(User userData, House house)
+        // {
+        //     try
+        //     {
+        //         logger?.LogInformation("Add house to user");
+        //         var user = await context.Users.SingleOrDefaultAsync(c => c._id == userData._id);
+        //         if (user != null)
+        //         {
+        //             logger?.LogInformation("User found");
+        //             user._forSell.Add(house);
+        //             await context.SaveChangesAsync();
+        //             return (true, user, "added!");
 
 
-                }
-                return (false, new User(), "Not Found");
-            }
-            catch (Exception ex)
-            {
-                logger?.LogError(ex.ToString());
-                return (false, new User(), ex.Message);
-            }
-        }
+        //         }
+        //         return (false, new User(), "Not Found");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         logger?.LogError(ex.ToString());
+        //         return (false, new User(), ex.Message);
+        //     }
+        // }
         public async Task<(bool IsSuccess, User User, string ErrorMessage)> GetUserAsync(Guid id)
         {
             try
