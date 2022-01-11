@@ -160,10 +160,10 @@ namespace HousePricePrediction.API.Services
              try
             {
                 logger?.LogInformation("Update a user");
-                var user = await context.Users.SingleOrDefaultAsync(c => c._id == id);
+                var user = await context.Users.SingleOrDefaultAsync(c => c._id == _newUser._id);
                 if (user != null)
                 {
-                    var user = await context.Users.UpdateAsync(_newUser);
+                    await context.Users.Update(_newUser);
                     await context.SaveChangesAsync();
                     logger?.LogInformation("User updated");
                     return (true, user, "null");

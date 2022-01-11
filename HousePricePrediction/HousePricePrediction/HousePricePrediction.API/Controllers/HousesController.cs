@@ -97,35 +97,35 @@ namespace HousePricePrediction.API.Controllers
 
         //houses?_currentPrice=a&_noOfRooms=b&_noOfBathrooms=c&_surface=d&_floor=e
         [HttpGet]
-        public async Task<IActionResult> GetHousesByAsync(float currentPrice, float noOfRooms, float noOfBathrooms, float surface, float floor)
+        public async Task<IActionResult> GetHousesByAsync(string currentPrice, string noOfRooms, string noOfBathrooms, string surface, string floor)
         {
             var filters = new Dictionary<string, float>();
-            if(currentPrice.hasValue)
+            if(string.IsNullOrEmpty(currentPrice))
             {
-                filters.Add("_currentPrice", currentPrice);
+                filters.Add("_currentPrice", float.Parse(currentPrice));
             }
-            if(noOfRooms.hasValue)
+            if(string.IsNullOrEmpty(noOfRooms))
             {
-                filters.Add("_noOfRooms", noOfRooms);
+                filters.Add("_noOfRooms", float.Parse(noOfRooms));
             }
-            if(noOfBathrooms.hasValue)
+            if(string.IsNullOrEmpty(noOfBathrooms))
             {
-                filters.Add("_noOfBathrooms", noOfBathrooms);
+                filters.Add("_noOfBathrooms", float.Parse(noOfBathrooms));
             }
-            if(surface.hasValue)
+            if(string.IsNullOrEmpty(surface))
             {
-                filters.Add("_surface", surface);
+                filters.Add("_surface", float.Parse(surface));
             }
-            if(floor.hasValue)
+            if(string.IsNullOrEmpty(floor))
             {
-                filters.Add("_floor", floor);
+                filters.Add("_floor", float.Parse(floor));
             }
 
             var houses = await _service.GetHousesByFiltersAsync(filters);
 
             if (houses.IsSuccess)
             {
-                return Ok(houses.Houses);
+                return Ok(houses.House);
             }
 
             return NotFound(houses.ErrorMessage);

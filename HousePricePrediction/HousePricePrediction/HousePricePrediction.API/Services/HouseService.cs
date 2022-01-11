@@ -66,7 +66,7 @@ namespace HousePricePrediction.API.Services
             }
         }
 
-        public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetHousesByFiltersAsync(var Filters)
+        public async Task<(bool IsSuccess, House House, string ErrorMessage)> GetHousesByFiltersAsync(Dictionary<string, float> Filters)
         {
              try
             {
@@ -75,22 +75,22 @@ namespace HousePricePrediction.API.Services
                 var query = context.Houses;
 
                 foreach(var filter in Filters)
-                    query = query.Where(filter.PropertyName, filter.Value);
+                    query = query.Where(filter.Key, filter.Value);
 
-                var houses = query.FirstOrDefault<House>();
+                var house = query.FirstOrDefault<House>();
 
-                if (houses != null)
+                if (house != null)
                 {
                     await context.SaveChangesAsync();
-                    return (true, houses, "");
+                    return (true, house, "");
                 }
 
-                return (false, Enumerable.Empty<House>(), "Not found");
+                return (false, new House(), "Not found");
             }
             catch (Exception ex)
             {
                 logger?.LogError(ex.ToString());
-                return (false, Enumerable.Empty<House>(), ex.Message);
+                return (false, new House(), ex.Message);
             }
         }
 
