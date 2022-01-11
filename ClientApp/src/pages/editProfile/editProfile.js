@@ -1,5 +1,6 @@
 import "./editProfile.css";
 export default function EditProfile(){
+    
     return (
         <div class="edit">
             <div class="editBox">

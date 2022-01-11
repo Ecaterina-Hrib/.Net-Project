@@ -1,24 +1,17 @@
 import "./brHouse.css";
 import { useEffect, useState } from 'react';
-import House from "../../images/house2.jpeg";
-import House2 from "../../images/house3.jpeg";
-import House3 from "../../images/house4.jpeg";
 import HouseCard from "../../components/houseCard/houseCard"
 function BrHouse() {
-    let houses = [];
+    const [houses, setHouses] = useState([])
 
     useEffect(() => {
-        if(houses.length===0)
-        {
             fetch("http://localhost:5075/api/v1/houses/all")
             .then((response)=>response.json())
             .then((data)=>{
-                console.log(data);
+                data.map((house)=> setHouses(houses=>[...houses,house]));
             })
-        }
-    })
+    },[])
 
-    const [house, setHouse] = useState(houses);
 
 
     const [noOfRooms, setNoOfRooms] = useState(8);
@@ -93,10 +86,13 @@ function BrHouse() {
             </div>
             <div className="cards">
                 {
-                    houses.map((house) => {
-                        return (<HouseCard house={house} />)
-                    }
-                    )
+                    
+                        houses.map((house,index) => {
+                        if(index%3===0)
+                        return (<><HouseCard house={house} /> <br/></>)
+                        else
+                            return (<HouseCard house={house} />)
+                    })
                 }
             </div>
         </div>
