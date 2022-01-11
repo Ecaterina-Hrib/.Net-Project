@@ -20,7 +20,7 @@ namespace HousePricePrediction.API.Tests.v2
         public async Task notFoundHouse()
         {
             using var client = new HttpClient();
-            var house = await client.GetStringAsync("http://localhost:5075/api/v1/houses/0e937846-8bd4-49eb-94bd-029fbcb725d78");
+            var house = await client.GetStringAsync("http://localhost:5075/api/v1/houses/1");
             Assert.IsType<NotFoundObjectResult>(house);
         }
 

@@ -1,6 +1,7 @@
 using HousePricePrediction.API.Controllers;
 using HousePricePrediction.API.Models;
 using HousePricePrediction.API.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 

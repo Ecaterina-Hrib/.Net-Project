@@ -20,7 +20,7 @@ namespace HousePricePrediction.API.Tests.v2
         public async Task notFoundUser()
         {
             using var client = new HttpClient();
-            var user = await client.GetStringAsync("http://localhost:5075/api/v1/users/0e937846-8bd4-49eb-94bd-029fbcb725d78");
+            var user = await client.GetStringAsync("http://localhost:5075/api/v1/users/1");
             Assert.IsType<NotFoundObjectResult>(user);
         }
 
