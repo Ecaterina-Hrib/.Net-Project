@@ -95,5 +95,40 @@ namespace HousePricePrediction.API.Controllers
             return NotFound(house.ErrorMessage);
         }
 
+        //houses?_currentPrice=a&_noOfRooms=b&_noOfBathrooms=c&_surface=d&_floor=e
+        [HttpGet]
+        public async Task<IActionResult> GetHousesByAsync(float currentPrice, float noOfRooms, float noOfBathrooms, float surface, float floor)
+        {
+            var filters = new Dictionary<string, float>();
+            if(currentPrice.hasValue)
+            {
+                filters.Add("_currentPrice", currentPrice);
+            }
+            if(noOfRooms.hasValue)
+            {
+                filters.Add("_noOfRooms", noOfRooms);
+            }
+            if(noOfBathrooms.hasValue)
+            {
+                filters.Add("_noOfBathrooms", noOfBathrooms);
+            }
+            if(surface.hasValue)
+            {
+                filters.Add("_surface", surface);
+            }
+            if(floor.hasValue)
+            {
+                filters.Add("_floor", floor);
+            }
+
+            var houses = await _service.GetHousesByFiltersAsync(filters);
+
+            if (houses.IsSuccess)
+            {
+                return Ok(houses.Houses);
+            }
+
+            return NotFound(houses.ErrorMessage);
+        }
     }
 }

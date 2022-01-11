@@ -66,6 +66,34 @@ namespace HousePricePrediction.API.Services
             }
         }
 
+        public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetHousesByFiltersAsync(var Filters)
+        {
+             try
+            {
+                logger?.LogInformation("Quering houses");
+
+                var query = context.Houses;
+
+                foreach(var filter in Filters)
+                    query = query.Where(filter.PropertyName, filter.Value);
+
+                var houses = query.FirstOrDefault<House>();
+
+                if (houses != null)
+                {
+                    await context.SaveChangesAsync();
+                    return (true, houses, "");
+                }
+
+                return (false, Enumerable.Empty<House>(), "Not found");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, Enumerable.Empty<House>(), ex.Message);
+            }
+        }
+
         public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetHousesAsync()
         {
             try
