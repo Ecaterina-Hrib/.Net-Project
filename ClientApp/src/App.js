@@ -11,8 +11,28 @@ import Top10 from "./pages/top10/top10";
 import HouseTemplate from "./pages/houseTemplate/houseTemplate";
 import MyProfile from "./pages/myProfile/myProfile";
 import EditProfile from "./pages/editProfile/editProfile";
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(()=>{
+    let loggedIn = localStorage.getItem("loggedIn");
+    let username = localStorage.getItem("username");
+    if(loggedIn && username===undefined)
+    {
+      let userId= localStorage.getItem("userID")
+      let url = `http://localhost:5075/api/v1/users/${userId}`
+      console.log(url);
+      fetch(url)
+      .then((response) => response.json())
+      .then((data)=>
+      {
+        localStorage.setItem("username",data._username)
+        window.location.reload();
+      })
+    }
+  })
+
   return (
     <>
       <BrowserRouter>

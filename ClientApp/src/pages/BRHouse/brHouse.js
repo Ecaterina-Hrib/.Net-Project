@@ -1,38 +1,30 @@
 import "./brHouse.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import House from "../../images/house2.jpeg";
 import House2 from "../../images/house3.jpeg";
 import House3 from "../../images/house4.jpeg";
 import HouseCard from "../../components/houseCard/houseCard"
 function BrHouse() {
-    const houses = [
-        {
-            owner: "Mihai Lucifer",
-            surface: "150m2",
-            type: "Apartament",
-            nrofrooms: "4",
-            image: House
-        },
-        {
-            owner: "Mihai Lucifer",
-            surface: "175m2",
-            type: "House",
-            nrofrooms: "6",
-            image: House2
-        },
-        {
-            owner: "Mihai Lucifer",
-            surface: "250m2",
-            type: "Hotel",
-            nrofrooms: "8",
-            image: House3
-        },
-    ];
+    let houses = [];
 
-    const [noOfRooms, setNoOfRooms] = useState(7);
+    useEffect(() => {
+        if(houses.length===0)
+        {
+            fetch("http://localhost:5075/api/v1/houses/all")
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data);
+            })
+        }
+    })
+
+    const [house, setHouse] = useState(houses);
+
+
+    const [noOfRooms, setNoOfRooms] = useState(8);
     const [noOfBaths, setNoOfBaths] = useState(2);
-    const [price, setPrice] = useState(100);
-    const [surface, setSurface] = useState(100);
+    const [price, setPrice] = useState(250000);
+    const [surface, setSurface] = useState(1000);
     const [floors, setFloors] = useState(3);
 
     const handleChangeRooms = (e) => setNoOfRooms(e.target.value)
@@ -40,6 +32,10 @@ function BrHouse() {
     const handleChangePrice = (e) => setPrice(e.target.value)
     const handleChangeSurface = (e) => setSurface(e.target.value)
     const handleChangeFloors = (e) => setFloors(e.target.value)
+
+    const handleSubmit = () => {
+        
+    }
 
     return (
         <div className="brHouse">
@@ -50,7 +46,7 @@ function BrHouse() {
                             Numar de camere
                         </label>
                         <div className="cont">
-                            <input type="range" min={0} max={15} value={noOfRooms} onChange={handleChangeRooms} className="slider" />
+                            <input type="range" min={0} max={16} value={noOfRooms} onChange={handleChangeRooms} className="slider" />
                             <div className="value">{noOfRooms}</div>
                         </div>
                     </div>
@@ -86,12 +82,12 @@ function BrHouse() {
                             Etaje
                         </label>
                         <div className="cont">
-                            <input type="range" min={0} max={5} value={floors} onChange={handleChangeFloors} className="slider" />
+                            <input type="range" min={0} max={6} value={floors} onChange={handleChangeFloors} className="slider" />
                             <div className="value">{floors}</div>
                         </div>
                     </div>
                     <div className="sliderContainer">
-                            <button>Submit</button>
+                            <button type="submit" onClick={handleSubmit}>Submit</button>
                     </div>
                 </div>
             </div>

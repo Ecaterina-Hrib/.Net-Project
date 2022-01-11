@@ -2,29 +2,26 @@ import "./sellHouse.css";
 import React, { useState } from "react";
 
 const initialState = {
-  username: "",
-  description: "",
-  title: "",
-  city: "",
-  country: "",
-  address: "",
-  latitude: null,
-  longitude: null,
-  constructionYear: null,
-  noOfRooms: null,
-  floor: null,
-  surface: null,
-  landSurface: null,
-  noOfBathrooms: null,
-  view: null,
-  condition: null,
-  grade: null,
-  sqft_basement: null,
-  yr_renovated: null,
-  zipcode: null,
-  currentPrice: null,
-  imageSrc: "",
-  imageFile: null,
+  _description: "",
+  _title: "",
+  _city: "",
+  _country: "",
+  _address: "",
+  _latitude: null,
+  _longitude: null,
+  _constructionYear: null,
+  _noOfRooms: null,
+  _floor: null,
+  _surface: null,
+  _landSurface: null,
+  _noOfBathrooms: null,
+  _view: null,
+  _condition: null,
+  _grade: null,
+  _sqft_basement: null,
+  _yr_renovated: null,
+  _zipcode: null,
+  _currentPrice: null,
 };
 
 function SellHouse() {
@@ -59,214 +56,206 @@ function SellHouse() {
     }
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("username", info.username);
-    formData.append("description", info.description);
-    formData.append("title", info.title);
-    formData.append("city", info.city);
-    formData.append("country", info.country);
-    formData.append("address", info.address);
-    formData.append("latitude", info.latitude);
-    formData.append("longitude", info.longitude);
-    formData.append("constructionYear", info.constructionYear);
-    formData.append("noOfRooms", info.noOfRooms);
-    formData.append("floor", info.floor);
-    formData.append("surface", info.surface);
-    formData.append("landSurface", info.landSurface);
-    formData.append("noOfBathrooms", info.noOfBathrooms);
-    formData.append("view", info.view);
-    formData.append("condition", info.condition);
-    formData.append("grade", info.grade);
-    formData.append("sqft_basement", info.sqft_basement);
-    formData.append("yr_renovated", info.yr_renovated);
-    formData.append("zipcode", info.zipcode);
-    formData.append("currentPrice", info.currentPrice);
-    formData.append("imageSrc", info.imageSrc);
-    formData.append("imageFile", info.imageFile);
-  };
+  let handleFormSubmit = () => {
+    console.log(info);
+    fetch(`http://localhost:5075/api/v1/houses/?username=${localStorage.getItem("username")}`, {
+      method: "post",
+      body: JSON.stringify(info),
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8'
+      })
+    })
+      .then(response => response.json())
+      .then((data) => {
+        alert("You have added a house here!")
+        alert(`We recommend you the price of ${data.rent_price} for rent and ${data.sell_price} for selling`)
+        window.location.href = "http://localhost:3000/"
+      }
+      )
+      .catch((err) => {
+        alert(err);
+      }
+      )
+}
 
-  return (
-    <div class="sellHouse">
-      <form onSubmit={(e) => handleFormSubmit}>
-        <div class="imagePicker">
-          {info.imageFile && (
-            <div class="imageContainer">
-              <img
-                name="imageURL"
-                class="imageSelected"
-                alt="Not found"
-                src={info.imageSrc}
-              />
-              <br />
-              <button
-                onClick={() => setInfo({ imageSrc: "", imageFile: null })}
-              >
-                Remove
-              </button>
+    return (
+      <div class="sellHouse">
+        <div class="formContainer">
+          <div class="imagePicker">
+            {info.imageFile && (
+              <div class="imageContainer">
+                <img
+                  name="imageURL"
+                  class="imageSelected"
+                  alt="Not found"
+                  src={info.imageSrc}
+                />
+                <br />
+                <button>
+                  Remove
+                </button>
+              </div>
+            )}
+            <input
+              type="file"
+              onChange={(event) => {
+                showPreview(event);
+              }}
+            />
+          </div>
+          <div class="infoFormWithSubmit">
+            <div class="infoForm">
+              <div class="infoColumn">
+                <input
+                  type="text"
+                  placeholder="Residence name"
+                  name="_title"
+                  value={info._title}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Description"
+                  name="_description"
+                  value={info._description}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="City"
+                  name="_city"
+                  value={info._city}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Country"
+                  name="_country"
+                  value={info._country}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  name="_address"
+                  value={info._address}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Latitude"
+                  name="_latitude"
+                  value={info._latitude}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Longitude"
+                  name="_longitude"
+                  value={info._longitude}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Year built"
+                  name="_constructionYear"
+                  value={info._constructionYear}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="No. of rooms"
+                  name="_noOfRooms"
+                  value={info._noOfRooms}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Floor"
+                  name="_floor"
+                  value={info._floor}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div class="infoColumn">
+                <input
+                  type="text"
+                  placeholder="Surface"
+                  name="_surface"
+                  value={info._surface}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Land surface"
+                  name="_landSurface"
+                  value={info._landSurface}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="No. of bathrooms"
+                  name="_noOfBathrooms"
+                  value={info._noOfBathrooms}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="View"
+                  name="_view"
+                  value={info._view}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Condition"
+                  name="_condition"
+                  value={info._condition}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Grade"
+                  name="_grade"
+                  value={info._grade}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Basement surface"
+                  name="_sqft_basement"
+                  value={info._sqft_basement}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Year renovated"
+                  name="_yr_renovated"
+                  value={info._yr_renovated}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Zipcode"
+                  name="_zipcode"
+                  value={info._zipcode}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Price (euro)"
+                  name="_currentPrice"
+                  value={info._currentPrice}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
-          )}
-          <input
-            type="file"
-            onChange={(event) => {
-              showPreview(event);
-            }}
-          />
-        </div>
-        <div class="infoFormWithSubmit">
-          <div class="infoForm">
-            <div class="infoColumn">
-              <input
-                type="text"
-                placeholder="Residence name"
-                name="title"
-                value={info.title}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                name="description"
-                value={info.description}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="City"
-                name="city"
-                value={info.city}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Country"
-                name="country"
-                value={info.country}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Address"
-                name="address"
-                value={info.address}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Latitude"
-                name="latitude"
-                value={info.latitude}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Longitude"
-                name="longitude"
-                value={info.longitude}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Year built"
-                name="constructionYear"
-                value={info.constructionYear}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="No. of rooms"
-                name="noOfRooms"
-                value={info.noOfRooms}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Floor"
-                name="floor"
-                value={info.floor}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div class="infoColumn">
-              <input
-                type="text"
-                placeholder="Surface"
-                name="surface"
-                value={info.surface}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Land surface"
-                name="landSurface"
-                value={info.landSurface}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="No. of bathrooms"
-                name="noOfBathrooms"
-                value={info.noOfBathrooms}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="View"
-                name="view"
-                value={info.view}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Condition"
-                name="condition"
-                value={info.condition}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Grade"
-                name="grade"
-                value={info.grade}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Basement surface"
-                name="sqft_basement"
-                value={info.sqft_basement}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Year renovated"
-                name="yr_renovated"
-                value={info.yr_renovated}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Zipcode"
-                name="zipcode"
-                value={info.zipcode}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                placeholder="Price (euro)"
-                name="currentPrice"
-                value={info.currentPrice}
-                onChange={handleInputChange}
-              />
+            <div class="submitButton">
+              <button type="submit" onClick={handleFormSubmit}>Submit</button>
             </div>
           </div>
-          <div class="submitButton">
-            <button type="submit">Submit</button>
-          </div>
         </div>
-      </form>
-    </div>
-  );
+      </div>
+    );
 }
 export default SellHouse;

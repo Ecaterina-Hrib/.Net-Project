@@ -51,11 +51,11 @@ namespace HousePricePrediction.API.Controllers
                 _newHouse._recommendedRentPrice = prices.rent_price;
             }
             var house = await _service.CreateHouseAsync(_newHouse);
-            // if (house.IsSuccess)
-            // {
-            //     await _userService.AddHouseAsync(user.User, _newHouse);
-            //     return Ok(prices);
-            // }
+            if (house.IsSuccess)
+            {
+                Console.WriteLine(prices);
+                return Ok(prices);
+            }
 
             return BadRequest(house.ErrorMessage);
         }

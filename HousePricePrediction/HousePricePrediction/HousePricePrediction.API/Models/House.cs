@@ -12,7 +12,7 @@ namespace HousePricePrediction.API.Models
         [Key]
         public Guid _id { get; set; }
         public  User? _user { get; set; }
-        public Guid _user_id { get; set; }
+        public Guid? _user_id { get; set; }
         public String? _description { get; set; }
         public String? _title { get; set; }
         public String? _city { get; set; }

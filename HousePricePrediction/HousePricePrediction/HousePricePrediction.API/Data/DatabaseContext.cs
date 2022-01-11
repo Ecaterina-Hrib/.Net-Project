@@ -23,6 +23,9 @@ namespace HousePricePrediction.API.DB
                 // .HasForeignKey(h => h._id)
                 // .OnDelete(DeleteBehavior.Cascade);
 
+                modelBuilder.Entity<User>()
+                .HasIndex(u => u._email).IsUnique();
+                
                 modelBuilder.Entity<User>().ToTable("users");
 
                 modelBuilder.Entity<RecommendedPrice>().HasNoKey();

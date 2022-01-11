@@ -6,7 +6,7 @@ export default function EditProfile(){
                 <label>Name</label>
                 <input type="text" />
                 <label>Phone Number</label>
-                <input type="number" />
+                <input type="number" max={9999999999}/>
                 <label>E-mail</label>
                 <input type="text" />
                 <button type="submit">Update</button>

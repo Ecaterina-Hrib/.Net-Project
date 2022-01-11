@@ -2,7 +2,13 @@ import './navbar.css'
 import {Link} from 'react-router-dom'
 import {slide as Menu} from 'react-burger-menu'
 function Navbar(){
-    let loggedIn=true;
+    let loggedIn=localStorage.getItem("loggedIn");
+    const logOut = () => {
+        localStorage.clear();
+        loggedIn=false;
+        window.location.href="http://localhost:3000/"
+        window.location.reload();
+    }
     return(
         <div className="navMenu">
             <Menu right>
@@ -15,14 +21,14 @@ function Navbar(){
                 <Link to="/ourRecommandations">Our recommandations</Link>
                 <Link to="/profile">My Profile</Link>
 
-                    {loggedIn ?
+                    {!loggedIn ?
                     (
                 <div className="registerButtons">
                         <Link to="/signup"><button>Sign up</button></Link>
                     <Link to="/login"><button>Log in</button></Link>
                 </div>
                     ) : (<div className="registerButtons">
-                        <button>Log Out</button>
+                        <button onClick={logOut}>Log Out</button>
                         </div>)
                     }
             </Menu>

@@ -15,7 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 namespace HousePricePrediction.API
 {
     public class Startup
-    {
+    {   
+        private const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,7 +32,16 @@ namespace HousePricePrediction.API
             services.AddScoped<Services.HouseService>();
             services.AddScoped<Services.UserService>();
             services.AddControllers();
-            services.AddSwaggerGen(); 
+            services.AddSwaggerGen();
+            services.AddCors(options =>
+            {   
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:3000", "*", "http://localhost:3000/*")
+                          .AllowAnyHeader().AllowAnyMethod();
+                      });
+            });
             // services.AddSwaggerGen(c =>
             // {
             //     c.SwaggerDoc("v1", new OpenApiInfo { Title = "House Price Predictionx", Version = "v1" });
@@ -69,6 +80,8 @@ namespace HousePricePrediction.API
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(MyAllowSpecificOrigins);
+
 
             app.UseEndpoints(endpoints =>
             {
