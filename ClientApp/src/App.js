@@ -9,6 +9,8 @@ import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import Top10 from "./pages/top10/top10";
 import HouseTemplate from "./pages/houseTemplate/houseTemplate";
+import MyProfile from "./pages/myProfile/myProfile";
+import EditProfile from "./pages/editProfile/editProfile";
 
 function App() {
   return (
@@ -23,7 +25,8 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/ourRecommandations" element={<Top10/>} />
           <Route path="/housetemplate/:id" element={<HouseTemplate/>} />
-          <Route path="/profile" />
+          <Route path="/profile" element={<MyProfile/>}/>
+          <Route path="/profile/edit" element={<EditProfile/>}/>
         </Routes>
       </BrowserRouter>
     </>
