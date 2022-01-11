@@ -1,0 +1,69 @@
+.top10{
+    width: 100%;
+    height: 91%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselContainer{
+    height: 80%;
+    width: 80%;
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    width: 60%;
+    height: 15%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-between;
+}
+
+.row button{
+    width: 100%;
+    justify-self: flex-end;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: turquoise;
+    color: white;
+}
+
+.houseinfo{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+.columns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    text-align: center;
+    margin-left: -2em;
+    gap: 4em;
+}
+
+.columns button{
+    background-color: pink;
+    color:pink;
+    border: 1px solid pink;
+}
+
+
+.carousel{
+    height: 100%;
+}

@@ -1,0 +1,34 @@
+.edit{
+    width: 100%;
+    height: 91%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editBox{
+    width: 70%;
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    font-size: 1.5em;
+}
+
+.editBox input{
+    width: 40%;
+    border-radius: 5px;
+}
+
+.editBox button{
+    width: 15%;
+    border-radius: 5px;
+    background-color: maroon;
+    color: white;
+}

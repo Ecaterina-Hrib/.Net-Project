@@ -1,0 +1,115 @@
+.navMenu{
+  width: 100%;
+  height: 9%;
+  background-color: black;
+}
+.bm-burger-button {
+  position: relative;
+  width: 2em;
+  height: 1.5em;
+  left: 95%;
+  top: 2em;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background:orangered;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 2em;
+  width: 2em;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  top:0;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: red;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1em 0 1em 0;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.circle{
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    left: 3em;
+}
+#roundPicture {
+    width: 6.5em;
+    height: 6em;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.registerButtons{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 10em;
+}
+
+.registerButtons button{
+    background-color: maroon;
+    color: white;
+    border-radius: 0.76em;
+    border: 1px solid black;
+    text-decoration: none;
+    height: 2em;
+    width: 9em;
+    margin: 3em 0 0 0;
+    font-size: 1em;
+}
+
+@media (max-width: 600px){
+  .bm-burger-button {
+    left: 91%;
+  }
+}
