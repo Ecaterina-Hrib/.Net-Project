@@ -37,6 +37,18 @@ namespace HousePricePrediction.API.Controllers
 
             return BadRequest(login.ErrorMessage);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(Guid id, string phoneNumber, string email, string name)
+        {
+            var result = await _service.UpdateUserAsync(id, phoneNumber, email, name);
+            if (result.IsSuccess)
+            {
+                return Ok(result.User);
+            }
+            return NotFound();
+        }
+
         [HttpGet("all")]
         public async Task<IActionResult> Get()
         {

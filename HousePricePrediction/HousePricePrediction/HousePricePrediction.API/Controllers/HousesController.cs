@@ -71,6 +71,18 @@ namespace HousePricePrediction.API.Controllers
             return NotFound(houses.ErrorMessage);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> FilterHousesAsync(float bathrooms, float rooms, float price, float surface, float floors)
+        {
+            var houses = await _service.FilterHousesAsync(bathrooms, rooms, price, surface, floors);
+            if (houses.IsSuccess)
+            {
+                return Ok(houses.Houses);
+            }
+
+            return NotFound(houses.ErrorMessage);
+        }
+
         [HttpGet("recommended")]
         public async Task<IActionResult> GetRecommendedHousesAsync()
         {

@@ -88,6 +88,27 @@ namespace HousePricePrediction.API.Services
                 return (false, Enumerable.Empty<House>(), ex.Message);
             }
         }
+
+        public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> FilterHousesAsync(float bathrooms, float rooms, float price, float surface, float floors)
+        {
+            try
+            {
+                logger?.LogInformation("Quering houses");
+                var houses = await context.Houses.ToListAsync();
+                if (houses != null && houses.Any())
+                {
+                    var filteredHouses = houses.Where(h => (h._noOfBathrooms == bathrooms && h._noOfRooms == rooms && h._currentPrice <= price && h._surface >= surface && h._floor == floors));
+                    return (true, filteredHouses, "filter");
+                }
+
+                return (false, Enumerable.Empty<House>(), "Not found");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, Enumerable.Empty<House>(), ex.Message);
+            }
+        }
         public async Task<(bool IsSuccess, IEnumerable<House> Houses, string ErrorMessage)> GetRecommendedHousesAsync()
         {
             try

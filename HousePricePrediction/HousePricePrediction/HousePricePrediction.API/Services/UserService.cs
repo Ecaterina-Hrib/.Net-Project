@@ -47,6 +47,30 @@ namespace HousePricePrediction.API.Services
                 return (false, new User(), ex.Message);
             }
         }
+
+        public async Task<(bool IsSuccess, User User, string ErrorMessage)> UpdateUserAsync(Guid id, string phoneNumber, string email, string name)
+        {
+            try
+            {
+                logger?.LogInformation("Update user");
+                var user = await context.Users.SingleOrDefaultAsync(c => c._id == id);
+                if (user != null)
+                {
+                    user._name = name;
+                    user._phoneNumber = phoneNumber;
+                    user._email =  email;
+                    await context.SaveChangesAsync();
+                    return (true, user, "updated!");
+                }
+
+                return (false, new User(), "Did not update");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex.ToString());
+                return (false, new User(), ex.Message);
+            }
+        }
         public async Task<(bool IsSuccess, Guid Id, string ErrorMessage)> Login(string email, string password)
         {
             try
